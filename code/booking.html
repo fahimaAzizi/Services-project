@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - [Salon Name]</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Book an Appointment</h1>
+  </header>
+  <main>
+    <p>Fill in the form below to schedule your appointment:</p>
+    <form action="send-mail.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      
+        <label for="service">Select Service:</label>
+        <select id="service" name="service">
+          <option value="hair-styling">Hair Styling</option>
+          <option value="hair-coloring">Hair Coloring</option>
+          <option value="haircuts">Haircuts</option>
+          <option value="facials">Facials</option>
+          <option value="massage">Massage</option>
+          <option value="manicure">Manicure</option>
+          <option value="pedicure">Pedicure</option>
+          <option value="waxing">Waxing</option>
+          <option value="threading">Threading</option>
+          <option value="makeup-application">Makeup Application</option>
+          <option value="bridal-makeup">Bridal Makeup</option>
+          <option value="eyelash-extensions">Eyelash Extensions</option>
+          <option value="eyebrow-tinting">Eyebrow Tinting</option>
+          <option value="hair-treatments">Hair Treatments</option>
+          <option value="scalp-treatments">Scalp Treatments</option>
+          <option value="body-scrub">Body Scrub</option>
+          <option value="body-wrap">Body Wrap</option>
+          <option value="spray-tanning">Spray Tanning</option>
+          <option value="microdermabrasion">Microdermabrasion</option>
+          <option value="chemical-peel">Chemical Peel</option>
+          <option value="aromatherapy">Aromatherapy</option>
+        </select>
+      
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+  </main>
+  <footer>
+    <p>© 2024 [Salon Name]. All rights reserved.</p>
+  </footer>
+</body>
+</html>
