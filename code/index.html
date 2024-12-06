@@ -1,87 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - [Salon Name]</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahima's Futuristic Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset and Body Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+nav a:hover, nav a.active {
+    background-color: #555;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service {
+    margin-bottom: 2rem;
+}
+
+blockquote {
+    background-color: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5rem 10px;
+    padding: 0.5rem 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4rem;
+    line-height: 0.1rem;
+    margin-right: 0.25rem;
+    vertical-align: -0.4rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+        .hero-title span {
+            color: #00ffcc;
+        }
+
+        .dynamic-text {
+            color: #ff0077;
+            font-weight: bold;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: #00ffcc;
+        }
+
+        .arrow-down {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #00ffcc;
+            border-width: 2px 2px 0 0;
+            transform: rotate(45deg);
+            margin: 10px auto;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(45deg);
+            }
+        }
+
+        /* About Me Section */
+        .about-me {
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .event-year {
+            font-size: 2rem;
+            color: #00ffcc;
+            background: #121212;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Friends Hub Section */
+        .friends-hub {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+        }
+
+        .friend-card {
+            min-width: 200px;
+            background: #242424;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+            scroll-snap-align: center;
+        }
+
+        .friend-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        /* Contact Me Section */
+        .contact-me form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            background: #121212;
+            border: 1px solid #00ffcc;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #00ffcc, #0077ff);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0077ff, #00ffcc);
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Hero Banner Section -->
-  <header class="hero-banner">
-    <img src="salon-ambiance.jpg" alt="Salon Ambiance">
-    <div class="overlay">
-      <h1>Welcome to [Salon Name] – Your Beauty, Our Priority</h1>
-      <div class="hero-buttons">
-        <a href="booking.html" class="btn">Book an Appointment</a>
-        <a href="services.html" class="btn">Explore Services</a>
-      </div>
-    </div>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#friends">Friends</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Featured Sections -->
-  <main>
-    <!-- Our Services Section -->
-    <section class="our-services">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service">
-          <img src="hair-styling-icon.png" alt="Hair Styling">
-          <h3>Hair Styling</h3>
-          <p>Transform your look with our expert stylists.</p>
+    <section class="hero-section" id="home">
+        <h1 class="hero-title">Hi, I'm <span>Fahima</span></h1>
+        <p class="hero-traits">I am <span class="dynamic-text">Creative</span></p>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="arrow-down"></div>
         </div>
-        <div class="service">
-          <img src="facials-icon.png" alt="Facials">
-          <h3>Facials</h3>
-          <p>Rejuvenate your skin with our premium treatments.</p>
-        </div>
-        <div class="service">
-          <img src="manicure-icon.png" alt="Manicure">
-          <h3>Manicure</h3>
-          <p>Perfect nails for any occasion with our manicure services.</p>
-        </div>
-        <div class="service">
-          <img src="massage-icon.png" alt="Massage">
-          <h3>Massage</h3>
-          <p>Relax and unwind with our therapeutic massages.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial">
-          <img src="client1.jpg" alt="Sarah J." class="client-photo">
-          <p>"The best haircut I’ve ever had! - Sarah J."</p>
-          <div class="rating">
-            <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          </div>
+    <section class="about-me" id="about">
+        <h2>About Me</h2>
+        <div class="timeline">
+            <div class="event">
+                <div class="event-year">2024</div>
+                <p>Started preparing for my move to Canada.</p>
+            </div>
+            <div class="event">
+                <div class="event-year">2026</div>
+                <p>Mastered modern web design!</p>
+            </div>
         </div>
-        <div class="testimonial">
-          <img src="client2.jpg" alt="John D." class="client-photo">
-          <p>"Amazing facial treatment. My skin feels incredible! - John D."</p>
-          <div class="rating">
-            <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          </div>
-        </div>
-        <!-- Add more testimonials as needed -->
-      </div>
     </section>
 
-    <!-- Promotions Section -->
-    <section class="promotions">
-      <h2>Current Promotions</h2>
-      <div class="promotion">
-        <p>Get a Free Manicure with Every Haircut - This Month Only!</p>
-      </div>
+    <section class="friends-hub" id="friends">
+        <h2>My Friends</h2>
+        <div class="carousel">
+            <div class="friend-card">
+                <img src="arifa.jpg" alt="Arifa">
+                <p>Arifa - My Confidant</p>
+            </div>
+            <div class="friend-card">
+                <img src="eraj.jpg" alt="Eraj">
+                <p>Eraj - Always Surprising</p>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2024 [Salon Name]. All rights reserved.</p>
-  </footer>
+    <section class="contact-me" id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script>
+        const traits = ["Creative", "Ambitious", "Coder", "Tea Enthusiast"];
+        let index = 0;
+
+        setInterval(() => {
+            document.querySelector(".dynamic-text").textContent = traits[index];
+            index = (index + 1) % traits.length;
+        }, 2000);
+    </script>
 </body>
 </html>
