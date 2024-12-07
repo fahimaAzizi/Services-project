@@ -1,62 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - [Salon Name]</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management - Game Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #6A0DAD;
+            color: white;
+        }
+
+        h1, h2 {
+            color: #FFDA03;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6A0DAD, #FFDA03);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #fff;
+            color: #6A0DAD;
+            font-weight: 700;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Time Management Section */
+        .content-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #FFDA03;
+            color: #6A0DAD;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .game-like-buttons {
+            margin-top: 30px;
+        }
+
+        .game-like-btn {
+            padding: 15px 25px;
+            background-color: #6A0DAD;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .game-like-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .info-box {
+            background-color: #fff;
+            color: #6A0DAD;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            text-align: left;
+            display: none;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+        }
+
+        .info-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .info-box p {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .game-like-btn {
+                width: 100%;
+                padding: 15px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Our Premium Services</h1>
-    <p>Experience luxury and professional care.</p>
-  </header>
-  <main>
-    <section class="services-grid">
-      <!-- Haircare -->
-      <div class="service">
-        <img src="haircare-icon.png" alt="Haircare">
-        <h3>Haircare</h3>
-        <div class="hover-info">
-          <p>Haircuts, Coloring, Blow-drying.</p>
-          <span>Starting at $20</span>
-        </div>
-      </div>
 
-      <!-- Skincare -->
-      <div class="service">
-        <img src="skincare-icon.png" alt="Skincare">
-        <h3>Skincare</h3>
-        <div class="hover-info">
-          <p>Facials, Exfoliation, Deep-cleansing.</p>
-          <span>Starting at $50</span>
-        </div>
-      </div>
-
-      <!-- Makeup -->
-      <div class="service">
-        <img src="makeup-icon.png" alt="Makeup">
-        <h3>Makeup</h3>
-        <div class="hover-info">
-          <p>Bridal, Party Makeup, Tutorials.</p>
-          <span>Starting at $70</span>
-        </div>
-      </div>
-
-      <!-- Nails -->
-      <div class="service">
-        <img src="nails-icon.png" alt="Nails">
-        <h3>Nails</h3>
-        <div class="hover-info">
-          <p>Manicure, Pedicure, Custom Nail Art.</p>
-          <span>Starting at $30</span>
-        </div>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Time Management Mastery: Level Up!</h1>
+        <p>Learn how to manage your time effectively and become the ultimate productivity hero.</p>
+        <a href="#content" class="cta-btn">Start Your Journey</a>
     </section>
-  </main>
-  <footer>
-    <p>© 2024 [Salon Name]. Designed with ❤️</p>
-  </footer>
+
+    <!-- Time Management Content Section -->
+    <section id="content" class="content-section">
+        <h2>What is Time Management?</h2>
+        <p>Time management is the art of organizing and planning how to divide your time between various activities. Effective time management allows you to accomplish more in less time, leading to better efficiency and productivity. Mastering time management will make you unstoppable!</p>
+
+        <!-- Game-like Buttons to Trigger Levels -->
+        <div class="game-like-buttons">
+            <button class="game-like-btn" onclick="showLevel('level1')">Level 1: Prioritizing Tasks</button>
+            <button class="game-like-btn" onclick="showLevel('level2')">Level 2: Time Blocking</button>
+            <button class="game-like-btn" onclick="showLevel('level3')">Level 3: Avoiding Distractions</button>
+        </div>
+
+        <!-- Content for Level 1 -->
+        <div id="level1" class="info-box">
+            <h3>Level 1: Prioritizing Tasks</h3>
+            <p>To get started with time management, it's crucial to know what tasks to focus on first. Effective prioritization can dramatically increase your productivity.</p>
+            <h4>What to Do:</h4>
+            <ul>
+                <li>Use the Eisenhower Matrix to categorize tasks into urgent/important, not urgent/important, urgent/not important, and not urgent/not important.</li>
+                <li>Focus on high-priority tasks first, even if they seem difficult.</li>
+                <li>Learn to delegate tasks that are important but not urgent to others.</li>
+            </ul>
+            <h4>What NOT to Do:</h4>
+            <ul>
+                <li>Do not waste time on tasks that are neither urgent nor important.</li>
+                <li>Don’t procrastinate on important tasks because they seem overwhelming.</li>
+                <li>Avoid multitasking, as it reduces the quality of your work.</li>
+            </ul>
+        </div>
+
+        <!-- Content for Level 2 -->
+        <div id="level2" class="info-box">
+            <h3>Level 2: Time Blocking</h3>
+            <p>Time blocking is the practice of scheduling specific time slots for different tasks. By doing this, you’ll reduce distractions and maintain focus.</p>
+            <h4>What to Do:</h4>
+            <ul>
+                <li>Break your day into time blocks (e.g., 9 AM to 12 PM for deep work).</li>
+                <li>Schedule breaks between blocks to recharge.</li>
+                <li>Set clear goals for each time block to maintain focus.</li>
+            </ul>
+            <h4>What NOT to Do:</h4>
+            <ul>
+                <li>Don’t schedule too many tasks in one block. Be realistic about how much time you need.</li>
+                <li>Don’t neglect to take regular breaks, as burnout can slow down your progress.</li>
+            </ul>
+        </div>
+
+        <!-- Content for Level 3 -->
+        <div id="level3" class="info-box">
+            <h3>Level 3: Avoiding Distractions</h3>
+            <p>Distractions can kill productivity. Learning how to avoid or minimize distractions will help you maintain focus and achieve your goals more efficiently.</p>
+            <h4>What to Do:</h4>
+            <ul>
+                <li>Turn off unnecessary notifications on your phone and computer.</li>
+                <li>Set up a dedicated workspace that minimizes distractions.</li>
+                <li>Set specific time slots for checking emails or social media, and avoid doing it constantly throughout the day.</li>
+            </ul>
+            <h4>What NOT to Do:</h4>
+            <ul>
+                <li>Don’t check your phone while working on important tasks.</li>
+                <li>Don’t allow people to interrupt your work time unless it's urgent.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Function to show the content for each level when clicked
+        function showLevel(level) {
+            // Hide all info-boxes
+            const allLevels = document.querySelectorAll('.info-box');
+            allLevels.forEach(level => level.style.display = 'none');
+
+            // Show the selected level
+            const selectedLevel = document.getElementById(level);
+            if (selectedLevel) {
+                selectedLevel.style.display = 'block';
+            }
+        }
+
+        // Default to show Level 1 info when page loads
+        window.onload = () => {
+            showLevel('level1');
+        };
+    </script>
 </body>
 </html>

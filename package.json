@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "experss": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
