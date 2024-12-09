@@ -7,128 +7,163 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #6A0DAD;
-            color: white;
         }
 
-        h1, h2 {
-            color: #FFDA03;
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            background: #121212; /* Dark background */
+            color: #fff; /* White text */
+        }
+
+        header, nav, section {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        nav {
+            background: #242424;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: sticky;
+            top: 60px;
+        }
+
+        nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
         }
 
         .hero {
-            background: linear-gradient(135deg, #6A0DAD, #FFDA03);
-            color: white;
-            padding: 50px;
-            text-align: center;
-            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
         }
 
         .hero h1 {
             font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        .hero p {
+        .hero .cta-btn {
+            padding: 10px 20px;
             font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #fff;
-            color: #6A0DAD;
-            font-weight: 700;
+            color: #121212;
+            background-color: #00ffcc;
+            border: none;
             border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s;
         }
 
         .cta-btn:hover {
-            background-color: #f1f1f1;
+            background-color: #ff0077;
+            transform: scale(1.1);
         }
 
-        /* Time Management Section */
         .content-section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #FFDA03;
-            color: #6A0DAD;
-            margin-top: 20px;
-            border-radius: 15px;
-        }
-
-        .content-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .content-section p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+            padding: 2rem 1rem;
         }
 
         .game-like-buttons {
-            margin-top: 30px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .game-like-btn {
-            padding: 15px 25px;
-            background-color: #6A0DAD;
-            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00ffcc;
+            color: #121212;
             border: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
+            border-radius: 5px;
             cursor: pointer;
-            margin: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
         .game-like-btn:hover {
+            background-color: #ff0077;
             transform: scale(1.1);
         }
 
         .info-box {
-            background-color: #fff;
-            color: #6A0DAD;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 30px;
-            text-align: left;
             display: none;
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-box.active {
+            display: block;
         }
 
         .info-box h3 {
-            font-size: 1.8rem;
+            color: #00ffcc;
+            margin-bottom: 15px;
         }
 
         .info-box ul {
-            list-style-type: none;
-            padding: 0;
+            text-align: left;
+            padding-left: 20px;
+            margin: 15px 0;
         }
 
-        .info-box li {
-            font-size: 1.2rem;
-            padding: 10px;
+        .info-box ul li {
+            margin-bottom: 10px;
         }
 
-        .info-box p {
-            font-size: 1.2rem;
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #242424;
+            margin-top: 2rem;
         }
 
-        /* Responsive Design */
+        footer p {
+            color: #aaa;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-            .game-like-btn {
-                width: 100%;
-                padding: 15px 0;
+
+            .game-like-buttons {
+                flex-direction: column;
             }
         }
     </style>

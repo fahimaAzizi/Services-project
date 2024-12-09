@@ -7,33 +7,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #6A0DAD; /* Purple background */
-            color: #FFDA03; /* Sunflower Yellow text */
+            box-sizing: border-box;
         }
 
-        h1, h2 {
-            color: #FFDA03; /* Sunflower Yellow */
-        }
-
-        a {
-            text-decoration: none;
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            background: #121212; /* Dark background */
+            color: #fff; /* White text */
         }
 
         /* Header Section */
         header {
-            background-color: #FFDA03; /* Sunflower Yellow */
-            color: #6A0DAD; /* Purple text */
-            padding: 50px 20px;
+            background-color: #333; /* Dark gray */
+            color: #fff; /* White text */
+            padding: 1rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
         }
 
         header p {
@@ -44,54 +45,53 @@
         .cta-btn {
             display: inline-block;
             padding: 12px 25px;
-            background-color: #6A0DAD; /* Purple */
-            color: white;
+            background-color: #00ffcc; /* Teal */
+            color: #121212; /* Dark background */
             font-weight: bold;
             border-radius: 5px;
             margin-top: 20px;
+            text-decoration: none;
             transition: background-color 0.3s ease;
         }
 
         .cta-btn:hover {
-            background-color: #FFDA03; /* Sunflower Yellow on hover */
+            background-color: #ff0077; /* Vibrant pink */
         }
 
-        /* Sticky Navigation */
+        /* Navigation */
         nav {
-            position: sticky;
-            top: 0;
-            background-color: #6A0DAD; /* Purple */
-            padding: 15px 0;
+            background-color: #333;
+            padding: 1rem 0;
             display: flex;
             justify-content: center;
             gap: 30px;
-            z-index: 100;
         }
 
         nav a {
-            color: #FFDA03; /* Sunflower Yellow text */
-            font-size: 1.1rem;
-            padding: 12px 18px;
-            border-radius: 5px;
+            color: #fff; /* White text */
+            text-decoration: none;
+            padding: 0.5rem 1rem;
             transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #FFDA03; /* Sunflower Yellow on hover */
-            color: #6A0DAD; /* Purple text on hover */
+            background-color: #555; /* Lighter gray */
         }
 
         /* Hero Section */
         .hero {
-            background: url('https://images.unsplash.com/photo-1501594907356-c4ad0a3b4408') center center/cover no-repeat;
-            color: white;
-            padding: 100px 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            box-shadow: inset 0 0 0 3000px rgba(0, 0, 0, 0.4); /* Dark overlay */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Gradient background */
+            color: #fff; /* White text */
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0;
         }
 
@@ -109,7 +109,7 @@
         .tips-section h2 {
             font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #FFDA03; /* Sunflower Yellow */
+            color: #00ffcc; /* Teal */
         }
 
         /* Tip Cards */
@@ -117,21 +117,20 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .tip-card {
-            background-color: #6A0DAD; /* Purple background */
-            color: #FFDA03; /* Sunflower Yellow text */
+            background-color: #242424; /* Dark gray background */
+            color: #00ffcc; /* Teal text */
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .tip-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
         }
 
         .tip-card img {
@@ -143,19 +142,17 @@
         .tip-card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #FFDA03; /* Sunflower Yellow */
         }
 
         .tip-card p {
             font-size: 1.1rem;
-            color: #FFDA03; /* Sunflower Yellow */
         }
 
         .tip-card .btn {
             display: inline-block;
             padding: 8px 20px;
-            background-color: #FFDA03; /* Sunflower Yellow */
-            color: #6A0DAD; /* Purple */
+            background-color: #00ffcc; /* Teal */
+            color: #121212; /* Dark background */
             border-radius: 5px;
             font-size: 1rem;
             margin-top: 15px;
@@ -164,54 +161,29 @@
         }
 
         .tip-card .btn:hover {
-            background-color: #6A0DAD; /* Purple on hover */
+            background-color: #ff0077; /* Vibrant pink */
             color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .cta-btn {
-                font-size: 1.1rem;
-                padding: 10px 20px;
-            }
-
-            .tip-card {
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
     <header>
         <h1>Master Self-Study Techniques</h1>
         <p>Your go-to resource for improving study skills and strategies.</p>
         <a href="#tips" class="cta-btn">Explore Tips</a>
     </header>
 
-    <!-- Sticky Navigation -->
     <nav>
         <a href="#hero">Home</a>
         <a href="#tips">Study Tips</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <h1>Boost Your Learning with These Tips!</h1>
         <p>Transform your self-study approach and reach new heights in your education.</p>
     </section>
 
-    <!-- Self-Study Tips Section -->
     <section id="tips" class="tips-section">
         <h2>Self-Study Tips</h2>
         <div class="tip-cards-container">
@@ -219,15 +191,13 @@
         </div>
     </section>
 
-    <!-- Script to render tips -->
     <script>
-        // Data for self-study tips
         const tipsData = [
             {
                 title: 'Time Management',
                 description: 'Learn how to manage your study time effectively with simple strategies.',
                 icon: 'https://img.icons8.com/ios-filled/50/ffffff/clock.png',
-                link: '#time-management'
+                link: 'time menagement .html'
             },
             {
                 title: 'Note Taking',
@@ -244,7 +214,7 @@
             {
                 title: 'Stay Motivated',
                 description: 'Learn how to stay motivated even during tough study sessions.',
-                icon: 'https://img.icons8.com/ios-filled/50/6A0DAD/fire.png',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/fire.png',
                 link: '#stay-motivated'
             },
             {
@@ -255,25 +225,18 @@
             }
         ];
 
-        // Function to render tip cards dynamically
-        function renderTipCards() {
-            const container = document.querySelector('.tip-cards-container');
-            tipsData.forEach(tip => {
-                const card = document.createElement('div');
-                card.classList.add('tip-card');
-                card.innerHTML = `
-                    <img src="${tip.icon}" alt="${tip.title}">
-                    <h3>${tip.title}</h3>
-                    <p>${tip.description}</p>
-                    <a href="${tip.link}" class="btn">Learn More</a>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Initial render of tip cards
-        renderTipCards();
+        const container = document.querySelector('.tip-cards-container');
+        tipsData.forEach(tip => {
+            const card = document.createElement('div');
+            card.classList.add('tip-card');
+            card.innerHTML = `
+                <img src="${tip.icon}" alt="${tip.title}">
+                <h3>${tip.title}</h3>
+                <p>${tip.description}</p>
+                <a href="${tip.link}" class="btn">Learn More</a>
+            `;
+            container.appendChild(card);
+        });
     </script>
-
 </body>
 </html>
