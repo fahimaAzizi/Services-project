@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .card {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #score {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p id="question">Click Start to see a question</p>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button id="submit">Submit</button>
+        <button id="next" style="display:none;">Next Question</button>
+    </div>
+    <div id="score">Correct Answers: 0</div>
+    <button id="start">Start</button>
+
+    <script>
+        const flashcards = [
+            { question: "What is the capital of France?", answer: "Paris" },
+            { question: "What is 5 + 7?", answer: "12" },
+            { question: "What is the chemical symbol for water?", answer: "H2O" },
+            { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" },
+            { question: "What is the largest planet in our solar system?", answer: "Jupiter" },
+            { question: "Who painted the Mona Lisa?", answer: "Leonardo da Vinci" },
+            { question: "What is the square root of 64?", answer: "8" },
+            { question: "What is the hardest natural substance on Earth?", answer: "Diamond" },
+            { question: "Who discovered penicillin?", answer: "Alexander Fleming" },
+            { question: "In which year did the Titanic sink?", answer: "1912" },
+            { question: "What is the tallest mountain in the world?", answer: "Mount Everest" },
+            { question: "What is the chemical symbol for gold?", answer: "Au" },
+            { question: "Who was the first president of the United States?", answer: "George Washington" },
+            { question: "What is the largest ocean on Earth?", answer: "Pacific Ocean" },
+            { question: "What is the capital of Japan?", answer: "Tokyo" },
+            // Add more questions here as needed
+        ];
+
+        let correctCount = 0;
+        let currentQuestionIndex = -1;
+
+        // Function to get a random question
+        function getRandomQuestion() {
+            const randomIndex = Math.floor(Math.random() * flashcards.length);
+            return flashcards[randomIndex];
+        }
+
+        // Function to start the game
+        function startGame() {
+            correctCount = 0;
+            document.getElementById('score').innerText = `Correct Answers: ${correctCount}`;
+            document.getElementById('start').style.display = 'none';
+            showNextQuestion();
+        }
+
+        // Function to show the next question
+        function showNextQuestion() {
+            const question = getRandomQuestion();
+            document.getElementById('question').innerText = question.question;
+            currentQuestionIndex = flashcards.indexOf(question);
+            document.getElementById('answer').value = '';
+            document.getElementById('next').style.display = 'none';
+            document.getElementById('submit').style.display = 'inline';
+        }
+
+        // Function to check the answer
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim();
+            const correctAnswer = flashcards[currentQuestionIndex].answer;
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                correctCount++;
+                document.getElementById('score').innerText = `Correct Answers: ${correctCount}`;
+                alert('Correct!');
+            } else {
+                alert('Incorrect. Try again!');
+            }
+            document.getElementById('submit').style.display = 'none';
+            document.getElementById('next').style.display = 'inline';
+        }
+
+        // Event listeners
+        document.getElementById('start').addEventListener('click', startGame);
+        document.getElementById('submit').addEventListener('click', checkAnswer);
+        document.getElementById('next').addEventListener('click', showNextQuestion);
+    </script>
+</body>
+</html>
