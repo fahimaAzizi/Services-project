@@ -1,101 +1,443 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .card {
-            font-size: 24px;
-            margin: 20px;
-        }
-        #score {
-            font-size: 20px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <p id="question">Click Start to see a question</p>
-        <input type="text" id="answer" placeholder="Enter your answer">
-        <button id="submit">Submit</button>
-        <button id="next" style="display:none;">Next Question</button>
+<section id="flashcard-game" class="content">
+    <h2>Active Recall Flashcard Game</h2>
+    <p>Test your memory with these flashcards! Type your answer below the card and check if it's correct.</p>
+
+    <div id="flashcards-container">
+        <!-- Flashcards will be injected here -->
     </div>
-    <div id="score">Correct Answers: 0</div>
-    <button id="start">Start</button>
 
-    <script>
-        const flashcards = [
-            { question: "What is the capital of France?", answer: "Paris" },
-            { question: "What is 5 + 7?", answer: "12" },
-            { question: "What is the chemical symbol for water?", answer: "H2O" },
-            { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" },
-            { question: "What is the largest planet in our solar system?", answer: "Jupiter" },
-            { question: "Who painted the Mona Lisa?", answer: "Leonardo da Vinci" },
-            { question: "What is the square root of 64?", answer: "8" },
-            { question: "What is the hardest natural substance on Earth?", answer: "Diamond" },
-            { question: "Who discovered penicillin?", answer: "Alexander Fleming" },
-            { question: "In which year did the Titanic sink?", answer: "1912" },
-            { question: "What is the tallest mountain in the world?", answer: "Mount Everest" },
-            { question: "What is the chemical symbol for gold?", answer: "Au" },
-            { question: "Who was the first president of the United States?", answer: "George Washington" },
-            { question: "What is the largest ocean on Earth?", answer: "Pacific Ocean" },
-            { question: "What is the capital of Japan?", answer: "Tokyo" },
-            // Add more questions here as needed
-        ];
+    <div id="score">
+        <p>Correct Answers: <span id="correct-count">0</span></p>
+        <p>Total Questions: <span id="total-count">0</span></p>
+    </div>
+    
+    <a href="#get-started" id="back-to-start" class="cta-btn">Back to Get Started</a>
+    
+    <!-- Form for feedback or results after completing the flashcards -->
+    <div id="feedback-form" style="display:none;">
+        <h3>Congratulations on Completing the Flashcards!</h3>
+        <form id="survey-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required />
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
 
-        let correctCount = 0;
-        let currentQuestionIndex = -1;
+<script>
+ const flashcards = [
+    { question: "What is the capital of France?", answer: "Paris" },
+    { question: "What is 5 + 7?", answer: "12" },
+    { question: "What is the chemical symbol for water?", answer: "H2O" },
+    { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" },
+    { question: "What is the largest planet in our solar system?", answer: "Jupiter" },
+    { question: "Who painted the Mona Lisa?", answer: "Leonardo da Vinci" },
+    { question: "What is the square root of 64?", answer: "8" },
+    { question: "What is the hardest natural substance on Earth?", answer: "Diamond" },
+    { question: "Who discovered penicillin?", answer: "Alexander Fleming" },
+    { question: "In which year did the Titanic sink?", answer: "1912" },
+    { question: "What is the tallest mountain in the world?", answer: "Mount Everest" },
+    { question: "What is the chemical symbol for gold?", answer: "Au" },
+    { question: "Who was the first president of the United States?", answer: "George Washington" },
+    { question: "What is the largest ocean on Earth?", answer: "Pacific Ocean" },
+    { question: "What is the capital of Japan?", answer: "Tokyo" },
+    { question: "Who developed the theory of relativity?", answer: "Albert Einstein" },
+    { question: "Which element has the atomic number 1?", answer: "Hydrogen" },
+    { question: "What is the capital of Italy?", answer: "Rome" },
+    { question: "What is the longest river in the world?", answer: "Nile River" },
+    { question: "Who invented the telephone?", answer: "Alexander Graham Bell" },
+    { question: "What is the currency of the United Kingdom?", answer: "Pound Sterling" },
+    { question: "What is the smallest country in the world?", answer: "Vatican City" },
+    { question: "Which planet is known as the Red Planet?", answer: "Mars" },
+    { question: "What is the boiling point of water in Celsius?", answer: "100°C" },
+    { question: "Who was the first man to walk on the moon?", answer: "Neil Armstrong" },
+    { question: "What is the capital of Canada?", answer: "Ottawa" },
+    { question: "What is the largest desert in the world?", answer: "Sahara Desert" },
+    { question: "Which element has the chemical symbol O?", answer: "Oxygen" },
+    { question: "What is the main ingredient in guacamole?", answer: "Avocado" },
+    { question: "Who wrote '1984'?", answer: "George Orwell" },
+    { question: "What is the speed of light?", answer: "299,792,458 meters per second" },
+    { question: "Which country is known as the Land of the Rising Sun?", answer: "Japan" },
+    { question: "What is the largest animal in the world?", answer: "Blue Whale" },
+    { question: "What is the capital of Australia?", answer: "Canberra" },
+    { question: "Which country is home to the Great Wall?", answer: "China" },
+    { question: "What is the largest island in the world?", answer: "Greenland" },
+    { question: "What is the currency of Japan?", answer: "Yen" },
+    { question: "What is the tallest building in the world?", answer: "Burj Khalifa" },
+    { question: "What is the national flower of Japan?", answer: "Cherry Blossom" },
+    { question: "What is the chemical symbol for silver?", answer: "Ag" },
+    { question: "What year did World War II end?", answer: "1945" },
+    { question: "Who painted the Sistine Chapel ceiling?", answer: "Michelangelo" },
+    { question: "Which country is known for its pyramids?", answer: "Egypt" },
+    { question: "What is the currency of the United States?", answer: "Dollar" },
+    { question: "What is the name of the largest volcano on Earth?", answer: "Mauna Loa" },
+    { question: "What is the longest river in the United States?", answer: "Missouri River" },
+    { question: "What is the chemical formula for methane?", answer: "CH4" },
+    { question: "What is the longest bone in the human body?", answer: "Femur" },
+    { question: "Which ocean is the smallest?", answer: "Arctic Ocean" },
+    { question: "What is the currency of France?", answer: "Euro" },
+    { question: "Who wrote 'To Kill a Mockingbird'?", answer: "Harper Lee" },
+    { question: "What is the largest country in the world by area?", answer: "Russia" },
+    { question: "What is the name of the first artificial satellite?", answer: "Sputnik 1" },
+    { question: "What is the name of the famous clock in London?", answer: "Big Ben" },
+    { question: "What is the capital of Spain?", answer: "Madrid" },
+    { question: "Which continent is known as the Dark Continent?", answer: "Africa" },
+    { question: "Which planet is the hottest in our solar system?", answer: "Venus" },
+    { question: "What is the tallest tree species in the world?", answer: "Coast Redwood" },
+    { question: "Who invented the light bulb?", answer: "Thomas Edison" },
+    { question: "What is the deepest part of the world's oceans?", answer: "Mariana Trench" },
+    { question: "What is the chemical symbol for carbon?", answer: "C" },
+    { question: "Who was the first woman to fly solo across the Atlantic?", answer: "Amelia Earhart" },
+    { question: "What is the fastest animal on Earth?", answer: "Peregrine Falcon" },
+    { question: "What is the capital of Russia?", answer: "Moscow" },
+    { question: "Who discovered America?", answer: "Christopher Columbus" },
+    { question: "What is the currency of Mexico?", answer: "Peso" },
+    { question: "What is the second most spoken language in the world?", answer: "Mandarin Chinese" },
+    { question: "What is the chemical formula for sodium chloride?", answer: "NaCl" },
+    { question: "What is the name of the longest mountain range in the world?", answer: "Andes" },
+    { question: "What is the capital of Egypt?", answer: "Cairo" },
+    { question: "Who is known as the father of modern physics?", answer: "Albert Einstein" },
+    { question: "Which country has the most people?", answer: "China" },
+    { question: "Which country is known for the Eiffel Tower?", answer: "France" },
+    { question: "Who invented the airplane?", answer: "Wright Brothers" },
+    { question: "What is the capital of Germany?", answer: "Berlin" },
+    { question: "Which country is home to the Amazon rainforest?", answer: "Brazil" },
+    { question: "What is the tallest statue in the world?", answer: "Statue of Unity" },
+    { question: "What is the capital of South Korea?", answer: "Seoul" },
+    { question: "Who wrote the 'Harry Potter' series?", answer: "J.K. Rowling" },
+    { question: "What is the capital of Mexico?", answer: "Mexico City" },
+    { question: "What is the square of 12?", answer: "144" },
+    { question: "What is the national animal of Australia?", answer: "Kangaroo" },
+    { question: "Which planet has the most moons?", answer: "Jupiter" },
+    { question: "Who painted the Starry Night?", answer: "Vincent van Gogh" },
+    { question: "What is the official language of Brazil?", answer: "Portuguese" },
+    { question: "What is the capital of Argentina?", answer: "Buenos Aires" },
+    { question: "What is the largest city in the world by population?", answer: "Tokyo" },
+    { question: "What is the smallest bone in the human body?", answer: "Stapes" },
+    { question: "What is the capital of Switzerland?", answer: "Bern" },
+    { question: "What is the largest country in Africa?", answer: "Algeria" },
+    { question: "Which chemical element has the symbol He?", answer: "Helium" },
+    { question: "What is the longest running TV show?", answer: "The Simpsons" },
+    { question: "What is the capital of Sweden?", answer: "Stockholm" },
+    { question: "Who is known as the father of computers?", answer: "Charles Babbage" },
+    { question: "What is the currency of India?", answer: "Indian Rupee" },
+    { question: "What is the largest bird in the world?", answer: "Ostrich" },
+    { question: "What is the capital of New Zealand?", answer: "Wellington" },
+    { question: "Who was the first woman to win a Nobel Prize?", answer: "Marie Curie" },
+    { question: "What is the capital of Greece?", answer: "Athens" },
+    { question: "Who is the Greek god of thunder?", answer: "Zeus" },
+    { question: "What is the largest lake in Africa?", answer: "Lake Victoria" },
+    { question: "What is the smallest planet in our solar system?", answer: "Mercury" },
+    { question: "Who invented the first computer?", answer: "Charles Babbage" }
+];
 
-        // Function to get a random question
-        function getRandomQuestion() {
-            const randomIndex = Math.floor(Math.random() * flashcards.length);
-            return flashcards[randomIndex];
+// Shuffle the flashcards array
+const flashcardsContainer = document.getElementById('flashcards-container');
+const correctCountElem = document.getElementById('correct-count');
+const totalCountElem = document.getElementById('total-count');
+const feedbackForm = document.getElementById('feedback-form');
+const surveyForm = document.getElementById('survey-form');
+const backToStartBtn = document.getElementById('back-to-start');
+
+let correctAnswers = 0;
+let currentQuestionIndex = 0;
+
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+};
+
+// Function to create a new flashcard
+const createFlashcards = () => {
+    flashcardsContainer.innerHTML = ''; // Clear previous flashcards
+    const flashcard = flashcards[currentQuestionIndex];
+
+    const card = document.createElement('div');
+    card.classList.add('flashcard');
+    card.innerHTML = `
+        <div class="flashcard-content">
+            <p class="flashcard-question">${flashcard.question}</p>
+            <input type="text" class="flashcard-input" placeholder="Type your answer here" />
+            <button class="submit-btn">Submit Answer</button>
+            <p class="feedback"></p>
+        </div>
+    `;
+
+    // Handle Answer Submission
+    const submitBtn = card.querySelector('.submit-btn');
+    const inputField = card.querySelector('.flashcard-input');
+    const feedbackElem = card.querySelector('.feedback');
+
+    submitBtn.addEventListener('click', () => {
+        const userAnswer = inputField.value.trim();
+        if (userAnswer.toLowerCase() === flashcard.answer.toLowerCase()) {
+            correctAnswers += 1;
+            correctCountElem.textContent = correctAnswers;
+            feedbackElem.textContent = 'Correct! Well done.';
+            feedbackElem.style.color = 'green';
+        } else {
+            feedbackElem.textContent = `Incorrect. The correct answer is: ${flashcard.answer}`;
+            feedbackElem.style.color = 'red';
         }
+        totalCountElem.textContent = parseInt(totalCountElem.textContent) + 1;
+        inputField.disabled = true; // Disable input after submission
+        submitBtn.disabled = true; // Disable submit button after answer
 
-        // Function to start the game
-        function startGame() {
-            correctCount = 0;
-            document.getElementById('score').innerText = `Correct Answers: ${correctCount}`;
-            document.getElementById('start').style.display = 'none';
-            showNextQuestion();
+        // Proceed to the next flashcard
+        currentQuestionIndex++;
+        if (currentQuestionIndex < flashcards.length) {
+            createFlashcards(); // Show next flashcard
+        } else {
+            checkCompletion(); // When game is completed, show the feedback form
         }
+    });
 
-        // Function to show the next question
-        function showNextQuestion() {
-            const question = getRandomQuestion();
-            document.getElementById('question').innerText = question.question;
-            currentQuestionIndex = flashcards.indexOf(question);
-            document.getElementById('answer').value = '';
-            document.getElementById('next').style.display = 'none';
-            document.getElementById('submit').style.display = 'inline';
-        }
+    flashcardsContainer.appendChild(card);
+    
+};
 
-        // Function to check the answer
-        function checkAnswer() {
-            const userAnswer = document.getElementById('answer').value.trim();
-            const correctAnswer = flashcards[currentQuestionIndex].answer;
-            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-                correctCount++;
-                document.getElementById('score').innerText = `Correct Answers: ${correctCount}`;
-                alert('Correct!');
-            } else {
-                alert('Incorrect. Try again!');
-            }
-            document.getElementById('submit').style.display = 'none';
-            document.getElementById('next').style.display = 'inline';
-        }
+// Function to check if the game is completed
+const checkCompletion = () => {
+    if (currentQuestionIndex === flashcards.length) {
+        feedbackForm.style.display = 'block'; // Show feedback form after game completion
+    }
+};
 
-        // Event listeners
-        document.getElementById('start').addEventListener('click', startGame);
-        document.getElementById('submit').addEventListener('click', checkAnswer);
-        document.getElementById('next').addEventListener('click', showNextQuestion);
-    </script>
-</body>
-</html>
+// Reset Game
+const resetGame = () => {
+    correctAnswers = 0;
+    currentQuestionIndex = 0;
+    correctCountElem.textContent = correctAnswers;
+    totalCountElem.textContent = 0;
+    flashcardsContainer.innerHTML = ''; // Clear previous flashcards
+    feedbackForm.style.display = 'none'; // Hide feedback form initially
+    createFlashcards(); // Recreate flashcards
+};
+
+// Handle Form Submission
+surveyForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    alert('Thank you for your feedback!');
+    // Add logic to save or send feedback data here.
+});
+
+// Back to Get Started Button
+backToStartBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    resetGame();
+});
+
+// Initial Game Setup
+createFlashcards();
+// Function to check if the certificate should be displayed
+const checkForCertificate = () => {
+    if (parseInt(totalCountElem.textContent) === 60) {
+        displayCertificate();
+    }
+};
+
+// Function to display the certificate
+const displayCertificate = () => {
+    const certificate = document.createElement('div');
+    certificate.id = 'certificate';
+    certificate.innerHTML = `
+        <div class="certificate-content">
+            <h1>Congratulations!</h1>
+            <p>You have completed 60 questions in the Flashcard Game.</p>
+            <p>Here is your certificate of achievement:</p>
+            <div class="certificate-frame">
+                <h2>Certificate of Achievement</h2>
+                <p>This certifies that</p>
+                <h3 id="user-name-display"></h3>
+                <p>has successfully answered 60 questions.</p>
+                <p>Keep learning and growing!</p>
+            </div>
+            <button id="download-certificate" class="cta-btn">Download Certificate</button>
+        </div>
+    `;
+
+    document.body.appendChild(certificate);
+
+    const downloadButton = document.getElementById('download-certificate');
+    downloadButton.addEventListener('click', () => {
+        alert('Certificate downloading feature can be added here!');
+        // You can integrate a library like jsPDF to generate a PDF.
+    });
+
+    // Hide flashcards and feedback form
+    flashcardsContainer.style.display = 'none';
+    feedbackForm.style.display = 'none';
+};
+
+// Modify existing submission logic to include certificate check
+submitBtn.addEventListener('click', () => {
+    const userAnswer = inputField.value.trim();
+    if (userAnswer.toLowerCase() === flashcard.answer.toLowerCase()) {
+        correctAnswers += 1;
+        correctCountElem.textContent = correctAnswers;
+        feedbackElem.textContent = 'Correct! Well done.';
+        feedbackElem.style.color = 'green';
+    } else {
+        feedbackElem.textContent = `Incorrect. The correct answer is: ${flashcard.answer}`;
+        feedbackElem.style.color = 'red';
+    }
+    totalCountElem.textContent = parseInt(totalCountElem.textContent) + 1;
+    inputField.disabled = true; // Disable input after submission
+    submitBtn.disabled = true; // Disable submit button after answer
+
+    // Check if a certificate should be displayed
+    checkForCertificate();
+
+    // Proceed to the next flashcard
+    currentQuestionIndex++;
+    if (currentQuestionIndex < flashcards.length) {
+        createFlashcards(); // Show next flashcard
+    } else {
+        checkCompletion(); // When game is completed, show the feedback form
+    }
+});
+
+</script>
+
+<style>
+    #flashcard-game {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #flashcards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.flashcard {
+    width: 250px;
+    height: 300px;
+    background-color: #2c2c2c;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+
+    .flashcard-content {
+        text-align: center;
+    }
+
+    .flashcard-input {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .submit-btn {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #00ffcc;
+        color: #121212;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #ff0077;
+    }
+
+    .feedback {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    #score {
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
+
+    #score p {
+        margin: 5px 0;
+    }
+
+    .cta-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #00ffcc;
+        color: #121212;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 30px;
+        text-decoration: none;
+    }
+
+    #feedback-form {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+    #feedback-form input, #feedback-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+
+    #feedback-form button {
+        background-color: #00ffcc;
+        color: #121212;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    #certificate {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.certificate-content {
+    margin: auto;
+}
+
+.certificate-frame {
+    border: 2px solid #2c2c2c;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #121212;
+    border-radius: 10px;
+}
+
+</style>
