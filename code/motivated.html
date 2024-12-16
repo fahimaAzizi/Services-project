@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Management - Game Mode</title>
+    <title>Stay Motivated</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
@@ -17,39 +17,42 @@
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             line-height: 1.5;
-            background: #121212; /* Dark background */
-            color: #fff; /* White text */
+            background: #121212;
+            color: #fff;
         }
 
-        header, nav, section {
+        /* Header Section */
+        header {
+            background-color: #333;
+            color: #fff;
             padding: 1rem;
             text-align: center;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
             position: sticky;
             top: 0;
-            z-index: 10;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Navigation */
         nav {
-            background: #242424;
+            background-color: #333;
+            padding: 1rem 0;
             display: flex;
             justify-content: center;
-            gap: 15px;
-            position: sticky;
-            top: 60px;
+            gap: 30px;
         }
 
         nav a {
-            color: #00ffcc;
+            color: #fff;
             text-decoration: none;
             padding: 0.5rem 1rem;
             transition: background-color 0.3s ease;
@@ -59,232 +62,128 @@
             background-color: #555;
         }
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        /* Main Content Section */
+        .main-content {
+            padding: 50px 20px;
+            text-align: center;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero .cta-btn {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: #121212;
-            background-color: #00ffcc;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s;
-        }
-
-        .cta-btn:hover {
-            background-color: #ff0077;
-            transform: scale(1.1);
-        }
-
-        .content-section {
-            padding: 2rem 1rem;
-        }
-
-        .game-like-buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .game-like-btn {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #00ffcc;
-            color: #121212;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        .game-like-btn:hover {
-            background-color: #ff0077;
-            transform: scale(1.1);
-        }
-
-        .info-box {
-            display: none;
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 20px;
-            background: #1c1c1c;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-box.active {
-            display: block;
-        }
-
-        .info-box h3 {
+        .main-content h2 {
+            font-size: 2.5rem;
             color: #00ffcc;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        .info-box ul {
-            text-align: left;
-            padding-left: 20px;
-            margin: 15px 0;
+        .main-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
-        .info-box ul li {
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            background-color: #242424;
+            color: #00ffcc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .tip-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
+        .tip-card p {
+            font-size: 1.1rem;
+        }
+
+        .tip-card .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #00ffcc;
+            color: #121212;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .tip-card .btn:hover {
+            background-color: #ff0077;
+            color: white;
+        }
+
+        /* Footer */
         footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            padding: 1rem;
-            background: #242424;
-            margin-top: 2rem;
+            padding: 1rem 0;
+            margin-top: 50px;
         }
 
         footer p {
-            color: #aaa;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .game-like-buttons {
-                flex-direction: column;
-            }
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Stay Motivated</h1>
+        <p>Keep your passion alive and reach your goals!</p>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Time Management Mastery: Level Up!</h1>
-        <p>Learn how to manage your time effectively and become the ultimate productivity hero.</p>
-        <a href="#content" class="cta-btn">Start Your Journey</a>
-    </section>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Study Tips</a>
+        <a href="#">Contact</a>
+    </nav>
 
-    <!-- Time Management Content Section -->
-    <section id="content" class="content-section">
-        <h2>What is Time Management?</h2>
-        <p>Time management is the art of organizing and planning how to divide your time between various activities. Effective time management allows you to accomplish more in less time, leading to better efficiency and productivity. Mastering time management will make you unstoppable!</p>
+    <section class="main-content">
+        <h2>How to Stay Motivated</h2>
+        <p>Motivation is the fuel that keeps you going. Here are some strategies to help you stay inspired throughout your journey.</p>
 
-        <!-- Game-like Buttons to Trigger Levels -->
-        <div class="game-like-buttons">
-            <button class="game-like-btn" onclick="showLevel('level1')">Level 1: Prioritizing Tasks</button>
-            <button class="game-like-btn" onclick="showLevel('level2')">Level 2: Time Blocking</button>
-            <button class="game-like-btn" onclick="showLevel('level3')">Level 3: Avoiding Distractions</button>
-        </div>
+        <div class="tips-container">
+            <div class="tip-card">
+                <h3>Set Clear Goals</h3>
+                <p>Define what you want to achieve. Clear and specific goals give you a roadmap to follow.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
 
-        <!-- Learn More Section -->
-        <button class="game-like-btn" onclick="toggleMoreInfo()">Learn More</button>
-        <div id="moreInfo" class="info-box">
-            <h3>Additional Information</h3>
-            <p>Time management is a critical skill that will make you more efficient and productive. By mastering various techniques like prioritizing tasks, time blocking, and minimizing distractions, you will increase your focus and ability to achieve your goals. Understanding these methods can help reduce stress and boost your confidence as you tackle daily tasks.</p>
-        </div>
+            <div class="tip-card">
+                <h3>Break Tasks Into Steps</h3>
+                <p>Tackle large tasks by breaking them into smaller, manageable parts to stay focused and productive.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
 
-      <!-- Content for Level 1 -->
-<div id="level1" class="info-box">
-    <h3>Level 1: Prioritizing Tasks</h3>
-    <p>To get started with time management, it's crucial to know what tasks to focus on first. Effective prioritization can dramatically increase your productivity.</p>
-    <h4>What to Do:</h4>
-    <ul>
-        <li>Use the Eisenhower Matrix to categorize tasks into urgent/important, not urgent/important, urgent/not important, and not urgent/not important.</li>
-        <li>Focus on high-priority tasks first, even if they seem difficult.</li>
-        <li>Learn to delegate tasks that are important but not urgent to others.</li>
-        <li>Review and reassess your priorities daily or weekly to ensure alignment with your goals.</li>
-        <li>Break larger tasks into smaller, manageable steps to make them less overwhelming.</li>
-    </ul>
-    <h4>What NOT to Do:</h4>
-    <ul>
-        <li>Do not waste time on tasks that are neither urgent nor important.</li>
-        <li>Don’t procrastinate on important tasks because they seem overwhelming.</li>
-        <li>Avoid multitasking, as it reduces the quality of your work.</li>
-        <li>Don’t focus solely on urgent tasks—ensure important long-term tasks also get attention.</li>
-        <li>Don’t say yes to every request; learn to set boundaries and protect your time.</li>
-    </ul>
-    <p>Tip: Start your day by identifying the most critical tasks to accomplish. This habit can set the tone for a productive day.</p>
-</div>
+            <div class="tip-card">
+                <h3>Reward Yourself</h3>
+                <p>Celebrate small wins along the way to keep your spirits high and maintain momentum.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
 
-<!-- Content for Level 2 -->
-<div id="level2" class="info-box">
-    <h3>Level 2: Time Blocking</h3>
-    <p>Time blocking is the practice of scheduling specific time slots for different tasks. By doing this, you’ll reduce distractions and maintain focus, creating a structured and efficient approach to your day.</p>
-    <h4>What to Do:</h4>
-    <ul>
-        <li>Break your day into time blocks (e.g., 9 AM to 12 PM for deep work).</li>
-        <li>Schedule breaks between blocks to recharge and avoid fatigue.</li>
-        <li>Set clear goals for each time block to stay focused and track your progress.</li>
-        <li>Combine similar tasks into blocks (e.g., grouping calls, emails, or meetings together).</li>
-        <li>Reserve time blocks for high-priority or creative tasks during your peak productivity hours.</li>
-        <li>Plan a daily or weekly review block to assess progress and adjust your schedule if needed.</li>
-    </ul>
-    <h4>What NOT to Do:</h4>
-    <ul>
-        <li>Don’t schedule too many tasks in one block. Be realistic about how much time you need.</li>
-        <li>Don’t neglect to take regular breaks, as burnout can slow down your progress.</li>
-        <li>Don’t fill your day with back-to-back blocks without leaving space for flexibility.</li>
-        <li>Avoid overestimating your ability to focus for long periods—use shorter blocks if necessary.</li>
-        <li>Don’t use your time blocks for activities unrelated to the goals set for that block.</li>
-    </ul>
-    <p>Tip: Experiment with different block durations (e.g., 25-minute Pomodoro sessions or 90-minute blocks) to find what works best for you. Customize your schedule to suit your energy levels and responsibilities.</p>
-</div>
-
-        <!-- Content for Level 3 -->
-        <div id="level3" class="info-box">
-            <h3>Level 3: Avoiding Distractions</h3>
-            <p>Distractions can kill productivity. Learning how to avoid or minimize distractions will help you maintain focus and achieve your goals more efficiently.</p>
-            <h4>What to Do:</h4>
-            <ul>
-                <li>Turn off unnecessary notifications on your phone and computer.</li>
-                <li>Set up a dedicated workspace that minimizes distractions.</li>
-                <li>Set specific time slots for checking emails or social media, and avoid doing it constantly throughout the day.</li>
-            </ul>
-            <h4>What NOT to Do:</h4>
-            <ul>
-                <li>Don’t check your phone while working on important tasks.</li>
-                <li>Don’t allow people to interrupt your work time unless it's urgent.</li>
-            </ul>
+            <div class="tip-card">
+                <h3>Stay Positive</h3>
+                <p>Surround yourself with positive influences and remind yourself of your achievements.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
         </div>
     </section>
 
-    <script>
-        // Function to show the content for each level when clicked
-        function showLevel(level) {
-            // Hide all info-boxes
-            const allLevels = document.querySelectorAll('.info-box');
-            allLevels.forEach(level => level.style.display = 'none');
-
-            // Show the selected level
-            const selectedLevel = document.getElementById(level);
-            if (selectedLevel) {
-                selectedLevel.style.display = 'block';
-            }
-        }
-
-        // Default to show Level 1 info when page loads
-        window.onload = () => {
-            showLevel('level1');
-        };
-
-        // Toggle the visibility of "Learn More" section
-        function toggleMoreInfo() {
-            const moreInfoBox = document.getElementById('moreInfo');
-            moreInfoBox.classList.toggle('active');
-        }
-    </script>
+    <footer>
+        <p>&copy; 2024 Master Self-Study. All rights reserved.</p>
+    </footer>
 </body>
 </html>
