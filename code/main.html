@@ -192,55 +192,53 @@
     </section>
 
     <script>
-        const tipsData = [
-            {
-                title: 'Time Management',
-                description: 'Learn how to manage your study time effectively with simple strategies.',
-                icon: 'https://img.icons8.com/ios-filled/50/ffffff/clock.png',
-                link: 'time menagement .html'
-            },
-            {
-                title: 'Note Taking',
-                description: 'Discover how to take clear and concise notes that help you remember.',
-                icon: 'https://img.icons8.com/ios-filled/50/ffffff/notepad.png',
-                link: 'notes.html'
-            },
-            {
-                title: 'Active Recall',
-                description: 'Use active recall methods to boost memory retention and recall.',
-                icon: 'https://img.icons8.com/ios-filled/50/ffffff/brain.png',
-                link: 'active.html'
-            },
-            {
-                title: 'Stay Motivated',
-    description: 'Discover strategies to stay inspired and focused throughout your journey.',
-    icon: 'https://img.icons8.com/ios-filled/50/ffffff/goal.png',
- // Replace with your icon's path
-    link: 'motivated.html' 
-           
-},
+       const tipsData = [
+    {
+        title: 'Time Management',
+        description: 'Learn how to manage your study time effectively with simple strategies.',
+        icon: 'https://img.icons8.com/ios-filled/50/ffffff/clock.png',
+        link: 'time-management.html'
+    },
+    {
+        title: 'Note Taking',
+        description: 'Discover how to take clear and concise notes that help you remember.',
+        icon: 'https://img.icons8.com/ios-filled/50/ffffff/notepad.png',
+        link: 'notes.html'
+    },
+    {
+        title: 'Active Recall',
+        description: 'Use active recall methods to boost memory retention and recall.',
+        icon: 'https://img.icons8.com/ios-filled/50/ffffff/brain.png',
+        link: 'active.html'
+    },
+    {
+        title: 'Stay Motivated',
+        description: 'Discover strategies to stay inspired and focused throughout your journey.',
+        icon: 'https://img.icons8.com/ios-filled/50/ffffff/goal.png',
+        link: 'motivated.html'
+    },
+    {
+        title: 'Healthy Study Habits',
+        description: 'Create healthy study routines that promote long-term success.',
+        icon: 'https://img.icons8.com/ios-filled/50/ffffff/health-book.png',
+        link: '#healthy-habits'
+    }
+    
+];
 
-            
-            {
-                title: 'Healthy Study Habits',
-                description: 'Create healthy study routines that promote long-term success.',
-                icon: 'https://img.icons8.com/ios-filled/50/ffffff/health-book.png',
-                link: '#healthy-habits'
-            }
-        ];
+const container = document.querySelector('.tip-cards-container');
+tipsData.forEach(tip => {
+    const card = document.createElement('div');
+    card.classList.add('tip-card');
+    card.innerHTML = `
+        <img src="${tip.icon}" alt="${tip.title}">
+        <h3>${tip.title}</h3>
+        <p>${tip.description}</p>
+        <a href="${tip.link}" class="btn">Learn More</a>
+    `;
+    container.appendChild(card);
+});
 
-        const container = document.querySelector('.tip-cards-container');
-        tipsData.forEach(tip => {
-            const card = document.createElement('div');
-            card.classList.add('tip-card');
-            card.innerHTML = `
-                <img src="${tip.icon}" alt="${tip.title}">
-                <h3>${tip.title}</h3>
-                <p>${tip.description}</p>
-                <a href="${tip.link}" class="btn">Learn More</a>
-            `;
-            container.appendChild(card);
-        });
     </script>
 </body>
 </html>
