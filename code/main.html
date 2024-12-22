@@ -164,13 +164,92 @@
             background-color: #ff0077; /* Vibrant pink */
             color: white;
         }
+
+        /* Sign-In Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #ff0077;
+        }
+
+        .modal-content .close-btn {
+            background-color: transparent;
+            color: #fff;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+        .sign-in-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00ffcc; /* Vibrant pink */
+    color: #121212; /* White text */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-btn:hover {
+    background-color:#ff0077 ; /* Teal on hover */
+    color: #fff; /* Dark background */
+}
+
     </style>
 </head>
 <body>
     <header>
         <h1>Master Self-Study Techniques</h1>
         <p>Your go-to resource for improving study skills and strategies.</p>
+
         <a href="#tips" class="cta-btn">Explore Tips</a>
+        <button class="sign-in-btn">Sign In</button>
     </header>
 
     <nav>
@@ -191,54 +270,87 @@
         </div>
     </section>
 
+    <div class="modal" id="signInModal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-       const tipsData = [
-    {
-        title: 'Time Management',
-        description: 'Learn how to manage your study time effectively with simple strategies.',
-        icon: 'https://img.icons8.com/ios-filled/50/ffffff/clock.png',
-        link: 'time-management.html'
-    },
-    {
-        title: 'Note Taking',
-        description: 'Discover how to take clear and concise notes that help you remember.',
-        icon: 'https://img.icons8.com/ios-filled/50/ffffff/notepad.png',
-        link: 'notes.html'
-    },
-    {
-        title: 'Active Recall',
-        description: 'Use active recall methods to boost memory retention and recall.',
-        icon: 'https://img.icons8.com/ios-filled/50/ffffff/brain.png',
-        link: 'active.html'
-    },
-    {
-        title: 'Stay Motivated',
-        description: 'Discover strategies to stay inspired and focused throughout your journey.',
-        icon: 'https://img.icons8.com/ios-filled/50/ffffff/goal.png',
-        link: 'motivated.html'
-    },
-    {
-        title: 'Healthy Study Habits',
-        description: 'Create healthy study routines that promote long-term success.',
-        icon: 'https://img.icons8.com/ios-filled/50/ffffff/health-book.png',
-        link: '#healthy-habits'
-    }
-    
-];
+        const tipsData = [
+            {
+                title: 'Time Management',
+                description: 'Learn how to manage your study time effectively with simple strategies.',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/clock.png',
+                link: 'time-management.html'
+            },
+            {
+                title: 'Note Taking',
+                description: 'Discover how to take clear and concise notes that help you remember.',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/notepad.png',
+                link: 'notes.html'
+            },
+            {
+                title: 'Active Recall',
+                description: 'Use active recall methods to boost memory retention and recall.',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/brain.png',
+                link: 'active.html'
+            },
+            {
+                title: 'Stay Motivated',
+                description: 'Discover strategies to stay inspired and focused throughout your journey.',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/goal.png',
+                link: 'motivated.html'
+            },
+            {
+                title: 'Healthy Study Habits',
+                description: 'Create healthy study routines that promote long-term success.',
+                icon: 'https://img.icons8.com/ios-filled/50/ffffff/health-book.png',
+                link: '#healthy-habits'
+            }
 
-const container = document.querySelector('.tip-cards-container');
-tipsData.forEach(tip => {
-    const card = document.createElement('div');
-    card.classList.add('tip-card');
-    card.innerHTML = `
-        <img src="${tip.icon}" alt="${tip.title}">
-        <h3>${tip.title}</h3>
-        <p>${tip.description}</p>
-        <a href="${tip.link}" class="btn">Learn More</a>
-    `;
-    container.appendChild(card);
-});
+        ];
 
+        const container = document.querySelector('.tip-cards-container');
+        tipsData.forEach(tip => {
+            const card = document.createElement('div');
+            card.classList.add('tip-card');
+            card.innerHTML = `
+                <img src="${tip.icon}" alt="${tip.title}">
+                <h3>${tip.title}</h3>
+                <p>${tip.description}</p>
+                <a href="${tip.link}" class="btn">Learn More</a>
+            `;
+            container.appendChild(card);
+        });
+
+        // Modal Functionality
+        const signInBtn = document.querySelector('.sign-in-btn');
+        const modal = document.getElementById('signInModal');
+        const closeBtn = document.querySelector('.close-btn');
+        const signInForm = document.getElementById('signInForm');
+
+        signInBtn.addEventListener('click', () => modal.style.display = 'flex');
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', event => {
+            if (event.target === modal) modal.style.display = 'none';
+        });
+
+        signInForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            alert(`Welcome, ${name}! Your Gmail (${email}) has been signed in.`);
+            modal.style.display = 'none';
+            signInForm.reset();
+            window.location.href = 'online.html';
+        });
     </script>
 </body>
 </html>
