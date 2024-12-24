@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the foundations of web development with HTML, CSS, and JavaScript. Create your own webpage from scratch with hands-on exercises and projects.">
+    <title>Web Development Basics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Dark theme */
+            color: #fff; /* White text */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00ffcc;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .lesson {
+            background-color: #242424;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .lesson h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .lesson p {
+            margin-bottom: 10px;
+        }
+
+        .code-box {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .btn {
+            background-color: #00ffcc;
+            color: #121212;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff0077;
+            color: #fff;
+        }
+
+        .quiz {
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Development Basics</h1>
+    </header>
+
+    <main>
+        <!-- Introduction Section -->
+        <section>
+            <h2 class="section-title">Introduction</h2>
+            <p>Welcome to the Web Development Basics course! This course is designed to teach you the fundamentals of HTML, CSS, and JavaScript. By the end, you'll be able to create a basic webpage and understand how these technologies work together.</p>
+        </section>
+
+        <!-- Prerequisites Section -->
+        <section>
+            <h2 class="section-title">Prerequisites</h2>
+            <ul>
+                <li>Basic computer knowledge.</li>
+                <li>A code editor (e.g., Visual Studio Code).</li>
+                <li>A web browser (e.g., Google Chrome).</li>
+            </ul>
+        </section>
+
+        <!-- Curriculum Section -->
+        <section>
+            <h2 class="section-title">Curriculum</h2>
+
+            <!-- HTML Basics -->
+            <div class="lesson">
+                <h2>HTML Basics</h2>
+                <p>HTML (HyperText Markup Language) is the building block of web development. Here's a simple example:</p>
+                <div class="code-box">
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html&gt;<br>
+                    &nbsp;&nbsp;&lt;head&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First Webpage&lt;/title&gt;<br>
+                    &nbsp;&nbsp;&lt;/head&gt;<br>
+                    &nbsp;&nbsp;&lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Welcome to My Page&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </div>
+                <a href="learn-html.html" class="btn">Learn More</a>
+            </div>
+
+            <!-- CSS Fundamentals -->
+            <div class="lesson">
+                <h2>CSS Fundamentals</h2>
+                <p>CSS (Cascading Style Sheets) is used to style HTML elements. Example:</p>
+                <div class="code-box">
+                    body {
+                        background-color: lightblue;
+                        font-family: Arial, sans-serif;
+                    }
+                </div>
+                <a href="learn-css.html" class="btn">Learn More</a>
+            </div>
+
+            <!-- JavaScript Introduction -->
+            <div class="lesson">
+                <h2>JavaScript Introduction</h2>
+                <p>JavaScript adds interactivity to your webpage. Example:</p>
+                <div class="code-box">
+                    console.log('Hello, World!');
+                </div>
+                <a href="learn-js.html" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz">
+            <h2 class="section-title">Quick Quiz</h2>
+            <div class="quiz-question">What does HTML stand for?</div>
+            <ul>
+                <li>A. HyperText Markup Language</li>
+                <li>B. HighText Machine Language</li>
+                <li>C. HyperTech Markup Logic</li>
+            </ul>
+        </section>
+
+        <!-- Resources Section -->
+        <section>
+            <h2 class="section-title">Additional Resources</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/" class="btn">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com/" class="btn">W3Schools</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Web Development Basics. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
