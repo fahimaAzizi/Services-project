@@ -151,7 +151,8 @@
             <!-- HTML Basics -->
             <div class="lesson">
                 <h2>HTML Basics</h2>
-                <p>HTML (HyperText Markup Language) is the building block of web development. Here's a simple example:</p>
+                <p>HTML (HyperText Markup Language) is the foundation of web development. Below is an introductory example:</p>
+            
                 <div class="code-box">
                     &lt;!DOCTYPE html&gt;<br>
                     &lt;html&gt;<br>
@@ -163,8 +164,116 @@
                     &nbsp;&nbsp;&lt;/body&gt;<br>
                     &lt;/html&gt;
                 </div>
-                <a href="learn-html.html" class="btn">Learn More</a>
+            
+                <button class="btn" onclick="toggleFullContent()">Learn More</button>
+            
+                <div id="full-content" style="display: none;">
+                    <h3>HTML Core Concepts</h3>
+            
+                    <!-- Basic Elements -->
+                    <h4>1. Text Formatting</h4>
+                    <div class="code-box">
+                        &lt;p&gt;This is a paragraph.&lt;/p&gt;<br>
+                        &lt;strong&gt;Bold Text&lt;/strong&gt;<br>
+                        &lt;em&gt;Italic Text&lt;/em&gt;<br>
+                        &lt;u&gt;Underlined Text&lt;/u&gt;
+                    </div>
+            
+                    <h4>2. Links</h4>
+                    <div class="code-box">
+                        &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+                    </div>
+            
+                    <h4>3. Images</h4>
+                    <div class="code-box">
+                        &lt;img src="https://via.placeholder.com/150" alt="Placeholder Image"&gt;
+                    </div>
+            
+                    <h4>4. Lists</h4>
+                    <div class="code-box">
+                        &lt;ul&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Unordered Item 1&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Unordered Item 2&lt;/li&gt;<br>
+                        &lt;/ul&gt;<br>
+                        &lt;ol&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Ordered Item 1&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;li&gt;Ordered Item 2&lt;/li&gt;<br>
+                        &lt;/ol&gt;
+                    </div>
+            
+                    <!-- Advanced Topics -->
+                    <h4>5. Tables</h4>
+                    <div class="code-box">
+                        &lt;table&gt;<br>
+                        &nbsp;&nbsp;&lt;tr&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Age&lt;/th&gt;<br>
+                        &nbsp;&nbsp;&lt;/tr&gt;<br>
+                        &nbsp;&nbsp;&lt;tr&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;John&lt;/td&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;30&lt;/td&gt;<br>
+                        &nbsp;&nbsp;&lt;/tr&gt;<br>
+                        &lt;/table&gt;
+                    </div>
+            
+                    <h4>6. Forms</h4>
+                    <div class="code-box">
+                        &lt;form&gt;<br>
+                        &nbsp;&nbsp;&lt;label for="name"&gt;Name:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&lt;input type="text" id="name" name="name"&gt;<br>
+                        &nbsp;&nbsp;&lt;input type="submit" value="Submit"&gt;<br>
+                        &lt;/form&gt;
+                    </div>
+            
+                    <h4>7. Semantic Elements</h4>
+                    <div class="code-box">
+                        &lt;header&gt;Header Section&lt;/header&gt;<br>
+                        &lt;article&gt;Main Content&lt;/article&gt;<br>
+                        &lt;footer&gt;Footer Section&lt;/footer&gt;
+                    </div>
+            
+                    <h4>8. Media Embedding</h4>
+                    <div class="code-box">
+                        &lt;video controls&gt;<br>
+                        &nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+                        &lt;/video&gt;<br>
+                        &lt;audio controls&gt;<br>
+                        &nbsp;&nbsp;&lt;source src="audio.mp3" type="audio/mp3"&gt;<br>
+                        &lt;/audio&gt;
+                    </div>
+            
+                    <h4>9. Inline vs Block Elements</h4>
+                    <p>Inline elements like &lt;span&gt; flow within text, while block elements like &lt;div&gt; create separate blocks.</p>
+            
+                    <!-- Additional Topics -->
+                    <h4>10. Metadata</h4>
+                    <div class="code-box">
+                        &lt;meta charset="UTF-8"&gt;<br>
+                        &lt;meta name="description" content="Learn HTML"&gt;
+                    </div>
+            
+                    <p>Explore these concepts to deepen your understanding of HTML. Experiment with different tags to see how they behave in a browser!</p>
+                </div>
             </div>
+            
+            <script>
+                function toggleFullContent() {
+                    const fullContent = document.getElementById('full-content');
+                    fullContent.style.display = fullContent.style.display === 'none' ? 'block' : 'none';
+                }
+            </script>
+            
+            <script>
+                function toggleFullContent() {
+                    const fullContent = document.getElementById('full-content');
+                    if (fullContent.style.display === 'none') {
+                        fullContent.style.display = 'block';
+                    } else {
+                        fullContent.style.display = 'none';
+                    }
+                }
+            </script>
+            
 
             <!-- CSS Fundamentals -->
             <div class="lesson">
