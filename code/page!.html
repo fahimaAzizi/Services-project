@@ -277,16 +277,215 @@
 
             <!-- CSS Fundamentals -->
             <div class="lesson">
-                <h2>CSS Fundamentals</h2>
-                <p>CSS (Cascading Style Sheets) is used to style HTML elements. Example:</p>
-                <div class="code-box">
-                    body {
-                        background-color: lightblue;
-                        font-family: Arial, sans-serif;
-                    }
+                <h2>Comprehensive CSS Guide</h2>
+                <p>CSS (Cascading Style Sheets) is essential for designing and styling web pages. Here's an extensive guide to CSS concepts:</p>
+            
+                <button class="btn" onclick="toggleCSSContent()">Learn More</button>
+            
+                <div id="css-content" style="display: none;">
+                    <h3>CSS Basics</h3>
+                    <!-- Core Basics -->
+                    <h4>1. Colors</h4>
+                    <div class="code-box">
+                        p {<br>
+                        &nbsp;&nbsp;color: red;<br>
+                        &nbsp;&nbsp;background-color: lightyellow;<br>
+                        }
+                    </div>
+            
+                    <h4>2. Fonts</h4>
+                    <div class="code-box">
+                        body {<br>
+                        &nbsp;&nbsp;font-family: 'Courier New', monospace;<br>
+                        &nbsp;&nbsp;font-size: 18px;<br>
+                        }
+                    </div>
+            
+                    <h4>3. Text Alignment</h4>
+                    <div class="code-box">
+                        h1 {<br>
+                        &nbsp;&nbsp;text-align: center;<br>
+                        }
+                    </div>
+            
+                    <h4>4. Line Height</h4>
+                    <div class="code-box">
+                        p {<br>
+                        &nbsp;&nbsp;line-height: 1.6;<br>
+                        }
+                    </div>
+            
+                    <h4>5. Borders</h4>
+                    <div class="code-box">
+                        div {<br>
+                        &nbsp;&nbsp;border: 1px solid black;<br>
+                        &nbsp;&nbsp;border-radius: 10px;<br>
+                        }
+                    </div>
+            
+                    <!-- Layout -->
+                    <h3>CSS Layout Techniques</h3>
+                    <h4>6. Box Shadow</h4>
+                    <div class="code-box">
+                        .card {<br>
+                        &nbsp;&nbsp;box-shadow: 2px 2px 5px gray;<br>
+                        }
+                    </div>
+            
+                    <h4>7. Z-Index</h4>
+                    <div class="code-box">
+                        .popup {<br>
+                        &nbsp;&nbsp;position: relative;<br>
+                        &nbsp;&nbsp;z-index: 10;<br>
+                        }
+                    </div>
+            
+                    <h4>8. Flexbox</h4>
+                    <div class="code-box">
+                        .container {<br>
+                        &nbsp;&nbsp;display: flex;<br>
+                        &nbsp;&nbsp;justify-content: space-between;<br>
+                        }
+                    </div>
+            
+                    <h4>9. Grid</h4>
+                    <div class="code-box">
+                        .grid {<br>
+                        &nbsp;&nbsp;display: grid;<br>
+                        &nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br>
+                        &nbsp;&nbsp;gap: 20px;<br>
+                        }
+                    </div>
+            
+                    <h4>10. Float</h4>
+                    <div class="code-box">
+                        img {<br>
+                        &nbsp;&nbsp;float: left;<br>
+                        &nbsp;&nbsp;margin: 10px;<br>
+                        }
+                    </div>
+            
+                    <!-- Advanced Styling -->
+                    <h3>Advanced CSS Techniques</h3>
+                    <h4>11. Animations</h4>
+                    <div class="code-box">
+                        @keyframes fadeIn {<br>
+                        &nbsp;&nbsp;from { opacity: 0; }<br>
+                        &nbsp;&nbsp;to { opacity: 1; }<br>
+                        }<br>
+                        .animate {<br>
+                        &nbsp;&nbsp;animation: fadeIn 2s;<br>
+                        }
+                    </div>
+            
+                    <h4>12. Transitions</h4>
+                    <div class="code-box">
+                        button {<br>
+                        &nbsp;&nbsp;transition: background-color 0.3s ease;<br>
+                        }<br>
+                        button:hover {<br>
+                        &nbsp;&nbsp;background-color: blue;<br>
+                        }
+                    </div>
+            
+                    <h4>13. Transform</h4>
+                    <div class="code-box">
+                        .rotate {<br>
+                        &nbsp;&nbsp;transform: rotate(45deg);<br>
+                        }
+                    </div>
+            
+                    <h4>14. Clip Path</h4>
+                    <div class="code-box">
+                        .circle {<br>
+                        &nbsp;&nbsp;clip-path: circle(50% at 50% 50%);<br>
+                        }
+                    </div>
+            
+                    <h4>15. Filters</h4>
+                    <div class="code-box">
+                        img {<br>
+                        &nbsp;&nbsp;filter: grayscale(50%);<br>
+                        }
+                    </div>
+            
+                    <!-- Responsive Design -->
+                    <h3>Responsive Design</h3>
+                    <h4>16. Media Queries</h4>
+                    <div class="code-box">
+                        @media (max-width: 600px) {<br>
+                        &nbsp;&nbsp;body { background-color: lightgray; }<br>
+                        }
+                    </div>
+            
+                    <h4>17. Viewport Units</h4>
+                    <div class="code-box">
+                        div {<br>
+                        &nbsp;&nbsp;width: 50vw;<br>
+                        &nbsp;&nbsp;height: 50vh;<br>
+                        }
+                    </div>
+            
+                    <h4>18. Mobile-First Design</h4>
+                    <p>Start with base styles for smaller screens and build up using media queries.</p>
+            
+                    <!-- More than 30 additional topics -->
+                    <h4>19. Overflow</h4>
+                    <div class="code-box">
+                        div {<br>
+                        &nbsp;&nbsp;overflow: hidden;<br>
+                        }
+                    </div>
+            
+                    <h4>20. Visibility</h4>
+                    <div class="code-box">
+                        .hidden {<br>
+                        &nbsp;&nbsp;visibility: hidden;<br>
+                        }
+                    </div>
+            
+                    <h4>21. Content</h4>
+                    <div class="code-box">
+                        .before::before {<br>
+                        &nbsp;&nbsp;content: "Prefix: ";<br>
+                        }
+                    </div>
+            
+                    <h4>22. Alignment</h4>
+                    <div class="code-box">
+                        .center {<br>
+                        &nbsp;&nbsp;text-align: center;<br>
+                        &nbsp;&nbsp;vertical-align: middle;<br>
+                        }
+                    </div>
+            
+                    <!-- You can expand this further with other topics like pseudo-classes, specific properties for forms, CSS variables, and more. -->
+                    <h4>23-50. Additional Concepts</h4>
+                    <p>Explore:</p>
+                    <ul>
+                        <li>Background Images</li>
+                        <li>Gradients</li>
+                        <li>CSS Variables</li>
+                        <li>Pseudo-classes and Elements</li>
+                        <li>Custom Properties</li>
+                        <li>Attribute Selectors</li>
+                        <li>CSS Grid Areas</li>
+                        <li>Filter Effects</li>
+                        <li>CSS Counters</li>
+                        <li>And more...</li>
+                    </ul>
+            
+                    <p>Experiment with these and dive into the full power of CSS!</p>
                 </div>
-                <a href="learn-css.html" class="btn">Learn More</a>
             </div>
+            
+            <script>
+                function toggleCSSContent() {
+                    const cssContent = document.getElementById('css-content');
+                    cssContent.style.display = cssContent.style.display === 'none' ? 'block' : 'none';
+                }
+            </script>
+            
 
             <!-- JavaScript Introduction -->
             <div class="lesson">
