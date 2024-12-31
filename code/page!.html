@@ -489,14 +489,173 @@
 
             <!-- JavaScript Introduction -->
             <div class="lesson">
-                <h2>JavaScript Introduction</h2>
-                <p>JavaScript adds interactivity to your webpage. Example:</p>
+                <h2>JavaScript Comprehensive Guide</h2>
+                <p>JavaScript makes your web pages interactive and dynamic. Below is an introductory example:</p>
                 <div class="code-box">
                     console.log('Hello, World!');
                 </div>
-                <a href="learn-js.html" class="btn">Learn More</a>
+            
+                <button class="btn" onclick="toggleJSContent()">Learn More</button>
+            
+                <div id="js-content" style="display: none;">
+                    <h3>JavaScript Core Concepts</h3>
+            
+                    <!-- Basics -->
+                    <h4>1. Variables</h4>
+                    <div class="code-box">
+                        let name = "John"; // Block-scoped variable<br>
+                        const age = 25; // Immutable variable<br>
+                        var city = "New York"; // Function-scoped variable
+                    </div>
+            
+                    <h4>2. Data Types</h4>
+                    <div class="code-box">
+                        let str = "Hello"; // String<br>
+                        let num = 42; // Number<br>
+                        let isTrue = true; // Boolean<br>
+                        let arr = [1, 2, 3]; // Array<br>
+                        let obj = { key: "value" }; // Object
+                    </div>
+            
+                    <h4>3. Functions</h4>
+                    <div class="code-box">
+                        function greet() {<br>
+                        &nbsp;&nbsp;console.log("Hello, World!");<br>
+                        }<br>
+                        greet();
+                    </div>
+            
+                    <h4>4. Conditional Statements</h4>
+                    <div class="code-box">
+                        if (age &gt; 18) {<br>
+                        &nbsp;&nbsp;console.log("You are an adult.");<br>
+                        } else {<br>
+                        &nbsp;&nbsp;console.log("You are a minor.");<br>
+                        }
+                    </div>
+            
+                    <h4>5. Loops</h4>
+                    <div class="code-box">
+                        for (let i = 0; i &lt; 5; i++) {<br>
+                        &nbsp;&nbsp;console.log(i);<br>
+                        }<br>
+                        let i = 0;<br>
+                        while (i &lt; 5) {<br>
+                        &nbsp;&nbsp;console.log(i);<br>
+                        &nbsp;&nbsp;i++;<br>
+                        }
+                    </div>
+            
+                    <!-- DOM Manipulation -->
+                    <h4>6. DOM Manipulation</h4>
+                    <div class="code-box">
+                        document.getElementById("example").innerText = "Updated Text!";<br>
+                        document.querySelector("h1").style.color = "blue";
+                    </div>
+            
+                    <h4>7. Event Listeners</h4>
+                    <div class="code-box">
+                        document.querySelector("button").addEventListener("click", function() {<br>
+                        &nbsp;&nbsp;alert("Button clicked!");<br>
+                        });
+                    </div>
+            
+                    <!-- Intermediate Topics -->
+                    <h4>8. Arrays</h4>
+                    <div class="code-box">
+                        let fruits = ["Apple", "Banana", "Cherry"];<br>
+                        fruits.push("Orange"); // Add to the end<br>
+                        fruits.pop(); // Remove from the end<br>
+                        console.log(fruits[0]); // Access first element
+                    </div>
+            
+                    <h4>9. Objects</h4>
+                    <div class="code-box">
+                        let car = {<br>
+                        &nbsp;&nbsp;make: "Toyota",<br>
+                        &nbsp;&nbsp;model: "Corolla",<br>
+                        &nbsp;&nbsp;year: 2021<br>
+                        };<br>
+                        console.log(car.make);
+                    </div>
+            
+                    <h4>10. Promises</h4>
+                    <div class="code-box">
+                        fetch('https://api.example.com')<br>
+                        &nbsp;&nbsp;.then(response => response.json())<br>
+                        &nbsp;&nbsp;.then(data => console.log(data));<br>
+                        &nbsp;&nbsp;.catch(error => console.error(error));
+                    </div>
+            
+                    <h4>11. Async/Await</h4>
+                    <div class="code-box">
+                        async function fetchData() {<br>
+                        &nbsp;&nbsp;try {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;let response = await fetch('https://api.example.com');<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;let data = await response.json();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(data);<br>
+                        &nbsp;&nbsp;} catch (error) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.error(error);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                        fetchData();
+                    </div>
+            
+                    <!-- Advanced Topics -->
+                    <h4>12. Classes</h4>
+                    <div class="code-box">
+                        class Person {<br>
+                        &nbsp;&nbsp;constructor(name, age) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+                        &nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;speak() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Hi, I'm ${this.name}`);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                        const john = new Person("John", 30);<br>
+                        john.speak();
+                    </div>
+            
+                    <h4>13. Error Handling</h4>
+                    <div class="code-box">
+                        try {<br>
+                        &nbsp;&nbsp;throw new Error("Something went wrong!");<br>
+                        } catch (error) {<br>
+                        &nbsp;&nbsp;console.error(error.message);<br>
+                        }
+                    </div>
+            
+                    <h4>14. Modules</h4>
+                    <div class="code-box">
+                        // Export<br>
+                        export const add = (a, b) => a + b;<br>
+                        // Import<br>
+                        import { add } from './math.js';<br>
+                        console.log(add(2, 3));
+                    </div>
+            
+                    <h4>15. Debugging</h4>
+                    <p>Use <code>console.log()</code>, browser developer tools, and breakpoints to debug your code efficiently.</p>
+            
+                    <h4>16. Best Practices</h4>
+                    <ul>
+                        <li>Write readable and well-documented code.</li>
+                        <li>Use <code>const</code> and <code>let</code> instead of <code>var</code>.</li>
+                        <li>Modularize your code for better reusability.</li>
+                    </ul>
+            
+                    <p>Explore these concepts to master JavaScript and build powerful, interactive web applications!</p>
+                </div>
             </div>
-        </section>
+            
+            <script>
+                function toggleJSContent() {
+                    const jsContent = document.getElementById('js-content');
+                    jsContent.style.display = jsContent.style.display === 'none' ? 'block' : 'none';
+                }
+            </script>
+            
 
         <!-- Quiz Section -->
         <section class="quiz">
