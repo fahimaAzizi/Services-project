@@ -17,6 +17,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: #121212; /* Dark theme */
             color: #fff; /* White text */
+            line-height: 1.6;
         }
 
         header {
@@ -31,6 +32,11 @@
 
         header h1 {
             font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
         }
 
         nav {
@@ -54,15 +60,25 @@
             padding: 20px;
         }
 
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #ff0077;
+        }
+
         .class-card {
             background-color: #242424; /* Card background */
             color: #00ffcc; /* Teal text */
             border-radius: 10px;
-            padding: 15px;
+            padding: 20px;
             margin-bottom: 20px;
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
+            gap: 10px;
             box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -72,39 +88,44 @@
             box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
         }
 
-        .class-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 5px;
+        .class-card h3 {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #00ffcc;
         }
 
         .class-details {
-            flex: 1;
-        }
-
-        .class-details h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .class-details p {
+            display: none;
+            margin-top: 10px;
             font-size: 1rem;
-            margin-bottom: 10px;
         }
 
-        .class-details .btn {
-            background-color: #00ffcc;
-            color: #121212;
-            padding: 8px 15px;
-            border-radius: 5px;
+        .class-details h4 {
+            font-size: 1.25rem;
+            color: #ff0077;
+            margin-bottom: 1rem;
+        }
+
+        .class-details ul {
+            margin-left: 20px;
+        }
+
+        .class-details a {
+            color: #00ffcc;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .class-details .btn:hover {
-            background-color: #ff0077;
+        .class-details a:hover {
+            color: #ff0077;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
             color: #fff;
+            margin-top: 40px;
         }
 
         .filter-bar {
@@ -127,13 +148,6 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
-        }
     </style>
     <script>
         function toggleDetails(id) {
@@ -145,73 +159,86 @@
 <body>
     <header>
         <h1>Graphic Design Classroom</h1>
-        <p>Learn and explore graphic design concepts step by step.</p>
+        <p>Explore the world of graphic design: Principles, Tools, and Creative Techniques!</p>
     </header>
     <nav>
-        <a href="#basics">Basics</a>
-        <a href="#tools">Tools</a>
+        <a href="#principles">Design Principles</a>
+        <a href="#tools">Design Tools</a>
         <a href="#projects">Projects</a>
-        <a href="#resources">Resources</a>
+        <a href="#inspiration">Inspiration</a>
     </nav>
     <main>
-        <section id="basics">
-            <h2>Design Basics</h2>
+        <section id="principles">
+            <h2>Design Principles</h2>
             <div class="class-card">
-                <h3 onclick="toggleDetails('principlesDetails')" style="cursor: pointer;">Principles of Design</h3>
-                <p>Learn about balance, contrast, alignment, repetition, proximity, and space.</p>
+                <h3 onclick="toggleDetails('principlesDetails')">The Core Principles of Graphic Design</h3>
+                <p>Understand the key principles that drive effective design: balance, contrast, and unity.</p>
                 <div id="principlesDetails" class="class-details">
-                    <h4>About Principles of Design</h4>
-                    <p>The principles of design are the rules that guide designers in arranging elements in a composition. Key principles include:</p>
+                    <h4>Key Principles:</h4>
                     <ul>
-                        <li><strong>Balance:</strong> Creating stability in design.</li>
-                        <li><strong>Contrast:</strong> Highlighting differences to draw attention.</li>
-                        <li><strong>Alignment:</strong> Arranging elements to create a visual connection.</li>
-                        <li><strong>Repetition:</strong> Reinforcing design consistency.</li>
-                        <li><strong>Proximity:</strong> Grouping related elements together.</li>
-                        <li><strong>Space:</strong> Using whitespace to improve readability.</li>
+                        <li><strong>Balance:</strong> Ensuring visual equilibrium in your design.</li>
+                        <li><strong>Contrast:</strong> Creating visual interest and hierarchy through differences.</li>
+                        <li><strong>Alignment:</strong> Organizing elements to create a cohesive layout.</li>
+                        <li><strong>Repetition:</strong> Using patterns to create unity and consistency.</li>
+                        <li><strong>Proximity:</strong> Grouping related elements to communicate relationships.</li>
+                        <li><strong>Whitespace:</strong> Using empty space to enhance clarity and legibility.</li>
                     </ul>
                 </div>
             </div>
         </section>
         <section id="tools">
-            <h2>Graphic Design Tools</h2>
+            <h2>Essential Graphic Design Tools</h2>
             <div class="class-card">
-                <h3 onclick="toggleDetails('photoshopDetails')" style="cursor: pointer;">Adobe Photoshop Basics</h3>
-                <p>Learn to edit images, work with layers, and use essential tools.</p>
+                <h3 onclick="toggleDetails('photoshopDetails')">Adobe Photoshop Overview</h3>
+                <p>Discover Photoshop's powerful features for photo editing, digital art, and more.</p>
                 <div id="photoshopDetails" class="class-details">
-                    <h4>About Adobe Photoshop</h4>
-                    <p>Adobe Photoshop is a raster graphics editor used for photo editing, digital art, and more. Key features include:</p>
+                    <h4>Why Photoshop?</h4>
+                    <p>Photoshop is the leading tool for image manipulation. Learn about its key tools and techniques:</p>
                     <ul>
-                        <li>Layers for non-destructive editing.</li>
-                        <li>Selection tools for precise edits.</li>
-                        <li>Brush tools for painting and retouching.</li>
-                        <li>Filters for creative effects.</li>
+                        <li><strong>Layers:</strong> Non-destructive editing for flexible design workflows.</li>
+                        <li><strong>Selection Tools:</strong> Precisely edit parts of your image.</li>
+                        <li><strong>Brush Tools:</strong> Create unique artistic effects.</li>
+                        <li><strong>Filters:</strong> Add creative effects and enhance your designs.</li>
                     </ul>
                     <p>Learn more at the <a href="https://www.adobe.com/products/photoshop.html" target="_blank">official Adobe Photoshop page</a>.</p>
+                </div>
+            </div>
+            <div class="class-card">
+                <h3 onclick="toggleDetails('illustratorDetails')">Adobe Illustrator Basics</h3>
+                <p>Get started with vector-based design in Illustrator. Perfect for logos, icons, and illustrations.</p>
+                <div id="illustratorDetails" class="class-details">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Vectors:</strong> Create scalable graphics with precision.</li>
+                        <li><strong>Pen Tool:</strong> Draw custom shapes and lines with accuracy.</li>
+                        <li><strong>Typography:</strong> Manipulate text for creative designs.</li>
+                        <li><strong>Color Theory:</strong> Work with color palettes to enhance your design.</li>
+                    </ul>
                 </div>
             </div>
         </section>
         <section id="projects">
             <h2>Hands-On Projects</h2>
             <ul>
-                <li>Create a business card using Adobe Illustrator.</li>
-                <li>Design a social media post in Canva.</li>
-                <li>Develop a wireframe for a website using Figma.</li>
+                <li>Create a Business Card using Adobe Illustrator.</li>
+                <li>Design a Social Media Post with Adobe Photoshop.</li>
+                <li>Develop a Website Wireframe using Figma.</li>
+                <li>Produce a Logo for a New Brand in Adobe Illustrator.</li>
             </ul>
         </section>
-        <section id="resources">
-            <h2>Additional Resources</h2>
+        <section id="inspiration">
+            <h2>Design Inspiration</h2>
             <div class="class-card">
-                <h3 onclick="toggleDetails('inspirationDetails')" style="cursor: pointer;">Design Inspiration</h3>
-                <p>Explore platforms like Dribbble and Behance for ideas.</p>
+                <h3 onclick="toggleDetails('inspirationDetails')">Inspiration Platforms</h3>
+                <p>Explore Dribbble and Behance for fresh design ideas and creative concepts.</p>
                 <div id="inspirationDetails" class="class-details">
-                    <h4>About Design Inspiration</h4>
-                    <p>Dribbble and Behance are platforms where designers showcase their work, offering inspiration across fields such as:</p>
+                    <h4>Explore These Platforms:</h4>
                     <ul>
-                        <li>Graphic design.</li>
-                        <li>UI/UX design.</li>
-                        <li>Illustration and animation.</li>
+                        <li><strong>Dribbble:</strong> A community showcasing graphic design and digital art.</li>
+                        <li><strong>Behance:</strong> A platform for portfolio sharing and design inspiration.</li>
+                        <li><strong>DeviantArt:</strong> A hub for illustration, digital art, and photography.</li>
                     </ul>
+                    <p>Start exploring at <a href="https://www.dribbble.com" target="_blank">Dribbble</a> and <a href="https://www.behance.net" target="_blank">Behance</a>.</p>
                 </div>
             </div>
         </section>
