@@ -4,27 +4,307 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn English</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Dark theme */
+            color: #fff; /* White text */
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #00ffcc;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #00ffcc;
+            color: #121212;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: #00ffcc;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #00ffcc;
+            color: #121212;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff0077;
+            color: #fff;
+        }
+
+        .grammar-section {
+            display: none;
+        }
+
+        .grammar-part {
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn {
+            background-color: #00ffcc;
+            color: #121212;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #ff0077;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Welcome to English for Beginners</h1>
-            <p>Improve your vocabulary, grammar, and speaking skills</p>
-        </div>
+        <h1>Learn English for Beginners</h1>
     </header>
+
+    <nav>
+        <a href="#vocabulary" id="vocabularyLink">Vocabulary</a>
+        <a href="#grammar" id="grammarLink">Grammar</a>
+        <a href="#listening">Listening</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#reading">Reading</a>
+        <a href="#writing">Writing</a>
+    </nav>
+
     <main>
-        <section class="course">
-            <img src="https://img.icons8.com/color/100/book.png" alt="English for Beginners">
-            <h2>English for Beginners</h2>
-            <p>Improve your vocabulary, grammar, and speaking skills.</p>
-            <a href="english-beginners.html" class="button">Start Learning</a>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 English for Beginners. All rights reserved.</p>
+        <div class="vocabulary-section">
+            <h2>Today's Vocabulary</h2>
+            <ul id="wordList" class="word-list"></ul>
         </div>
+
+        <div id="grammar" class="grammar-section">
+            <h2>Grammar</h2>
+
+            <div class="grammar-part">
+                <h3>Part 1: Nouns</h3>
+                <p>Nouns are words that name a person, place, thing, or idea. For example: "cat," "city," and "happiness."</p>
+            </div>
+
+            <div class="grammar-part">
+                <h3>Part 2: Verbs</h3>
+                <p>Verbs are words that describe actions or states. For example: "run," "jump," and "is."</p>
+            </div>
+
+            <div class="grammar-part">
+                <h3>Part 3: Adjectives</h3>
+                <p>Adjectives are words that describe nouns. For example: "happy," "blue," and "tall."</p>
+            </div>
+        </div>
+
+        <script>
+             const words = [
+    { word: "Abandon", meaning: "To leave behind or give up", partOfSpeech: "Verb" },
+    { word: "Abundant", meaning: "Plentiful; more than enough", partOfSpeech: "Adjective" },
+    { word: "Accomplish", meaning: "To complete or achieve successfully", partOfSpeech: "Verb" },
+    { word: "Accurate", meaning: "Free from errors; correct", partOfSpeech: "Adjective" },
+    { word: "Adapt", meaning: "To adjust or change to suit conditions", partOfSpeech: "Verb" },
+    { word: "Adequate", meaning: "Sufficient or enough", partOfSpeech: "Adjective" },
+    { word: "Aggressive", meaning: "Ready to attack or confront", partOfSpeech: "Adjective" },
+    { word: "Ambitious", meaning: "Having a strong desire for success", partOfSpeech: "Adjective" },
+    { word: "Analyze", meaning: "To examine methodically for explanation", partOfSpeech: "Verb" },
+    { word: "Apprehensive", meaning: "Fearful or anxious about the future", partOfSpeech: "Adjective" },
+    { word: "Arrogant", meaning: "Having an exaggerated sense of self-importance", partOfSpeech: "Adjective" },
+    { word: "Astound", meaning: "To shock or greatly surprise", partOfSpeech: "Verb" },
+    { word: "Authentic", meaning: "Genuine; real", partOfSpeech: "Adjective" },
+    { word: "Benevolent", meaning: "Kind and generous", partOfSpeech: "Adjective" },
+    { word: "Brisk", meaning: "Quick and active; lively", partOfSpeech: "Adjective" },
+    { word: "Curious", meaning: "Eager to know or learn something", partOfSpeech: "Adjective" },
+    { word: "Diligent", meaning: "Hardworking and careful", partOfSpeech: "Adjective" },
+    { word: "Empathy", meaning: "The ability to understand others' feelings", partOfSpeech: "Noun" },
+    { word: "Fascinate", meaning: "To capture interest or attention", partOfSpeech: "Verb" },
+    { word: "Flawless", meaning: "Without any mistakes or imperfections", partOfSpeech: "Adjective" },
+    { word: "Generous", meaning: "Willing to give or share", partOfSpeech: "Adjective" },
+    { word: "Humble", meaning: "Modest and unassuming", partOfSpeech: "Adjective" },
+    { word: "Innovative", meaning: "Featuring new ideas or methods", partOfSpeech: "Adjective" },
+    { word: "Jealous", meaning: "Feeling resentment against someone for their success", partOfSpeech: "Adjective" },
+    { word: "Kindle", meaning: "To start a fire or ignite an interest", partOfSpeech: "Verb" },
+    { word: "Legendary", meaning: "Remarkable enough to be famous", partOfSpeech: "Adjective" },
+    { word: "Meticulous", meaning: "Showing great attention to detail", partOfSpeech: "Adjective" },
+    { word: "Optimistic", meaning: "Hopeful and confident about the future", partOfSpeech: "Adjective" },
+    { word: "Persistent", meaning: "Continuing firmly despite challenges", partOfSpeech: "Adjective" },
+    { word: "Radiant", meaning: "Shining or glowing brightly", partOfSpeech: "Adjective" },
+    { word: "Resilient", meaning: "Able to recover quickly from difficulties", partOfSpeech: "Adjective" },
+    { word: "Serene", meaning: "Calm, peaceful, and untroubled", partOfSpeech: "Adjective" },
+    { word: "Thrive", meaning: "To grow or develop well", partOfSpeech: "Verb" },
+    { word: "Unique", meaning: "Being the only one of its kind", partOfSpeech: "Adjective" },
+    { word: "Vivid", meaning: "Producing strong, clear images in the mind", partOfSpeech: "Adjective" },
+    { word: "Witty", meaning: "Showing quick and inventive humor", partOfSpeech: "Adjective" },
+    { word: "Zealous", meaning: "Having great enthusiasm or passion", partOfSpeech: "Adjective" },
+    { word: "Courage", meaning: "The ability to do something difficult despite fear", partOfSpeech: "Noun" },
+    { word: "Eloquent", meaning: "Fluent or persuasive in speaking or writing", partOfSpeech: "Adjective" },
+    { word: "Fragile", meaning: "Easily broken or damaged", partOfSpeech: "Adjective" },
+    { word: "Grateful", meaning: "Feeling or showing thanks", partOfSpeech: "Adjective" },
+    { word: "Harmony", meaning: "Agreement or concord", partOfSpeech: "Noun" },
+    { word: "Integrity", meaning: "The quality of being honest and having strong principles", partOfSpeech: "Noun" },
+    { word: "Justice", meaning: "Fair treatment or behavior", partOfSpeech: "Noun" },
+    { word: "Luminous", meaning: "Giving off light; bright", partOfSpeech: "Adjective" },
+    { word: "Motivate", meaning: "To provide someone with a reason to act", partOfSpeech: "Verb" },
+    { word: "Nurture", meaning: "To care for and encourage growth", partOfSpeech: "Verb" },
+    { word: "Oblivious", meaning: "Unaware or not concerned about what is happening", partOfSpeech: "Adjective" },
+    { word: "Proactive", meaning: "Taking action in advance to deal with expected difficulties", partOfSpeech: "Adjective" },
+    { word: "Quaint", meaning: "Attractively unusual or old-fashioned", partOfSpeech: "Adjective" },
+    { word: "Resourceful", meaning: "Having the ability to find quick and clever solutions", partOfSpeech: "Adjective" },
+    { word: "Savvy", meaning: "Shrewd and knowledgeable; having common sense", partOfSpeech: "Adjective" },
+    { word: "Tenacious", meaning: "Holding firmly to something; persistent", partOfSpeech: "Adjective" },
+    { word: "Upbeat", meaning: "Cheerful and optimistic", partOfSpeech: "Adjective" },
+    { word: "Versatile", meaning: "Able to adapt or be used for many purposes", partOfSpeech: "Adjective" },
+    { word: "Wholesome", meaning: "Promoting good health or well-being", partOfSpeech: "Adjective" },
+    { word: "Yearn", meaning: "To have an intense feeling of longing for something", partOfSpeech: "Verb" },
+    { word: "Zest", meaning: "Great enthusiasm and energy", partOfSpeech: "Noun" },
+    { word: "Abode", meaning: "A place of residence; a house or home", partOfSpeech: "Noun" },
+    { word: "Aloof", meaning: "Not friendly or forthcoming; cool and distant", partOfSpeech: "Adjective" },
+    { word: "Ample", meaning: "Enough or more than enough", partOfSpeech: "Adjective" },
+    { word: "Bewilder", meaning: "To confuse or perplex", partOfSpeech: "Verb" },
+    { word: "Candid", meaning: "Truthful and straightforward", partOfSpeech: "Adjective" },
+    { word: "Deft", meaning: "Neatly skillful and quick in one's movements", partOfSpeech: "Adjective" },
+    { word: "Earnest", meaning: "Showing sincere and intense conviction", partOfSpeech: "Adjective" },
+    { word: "Feeble", meaning: "Lacking physical strength, especially due to age or illness", partOfSpeech: "Adjective" },
+    { word: "Gregarious", meaning: "Fond of company; sociable", partOfSpeech: "Adjective" },
+    { word: "Havoc", meaning: "Widespread destruction", partOfSpeech: "Noun" },
+    { word: "Impeccable", meaning: "In accordance with the highest standards; flawless", partOfSpeech: "Adjective" },
+    { word: "Jovial", meaning: "Cheerful and friendly", partOfSpeech: "Adjective" },
+    { word: "Keen", meaning: "Having or showing eagerness or enthusiasm", partOfSpeech: "Adjective" },
+    { word: "Lucid", meaning: "Expressed clearly; easy to understand", partOfSpeech: "Adjective" },
+    { word: "Malicious", meaning: "Intending or intended to do harm", partOfSpeech: "Adjective" },
+    { word: "Nimble", meaning: "Quick and light in movement or action", partOfSpeech: "Adjective" },
+    { word: "Obscure", meaning: "Not discovered or known about; uncertain", partOfSpeech: "Adjective" },
+    { word: "Pristine", meaning: "In its original condition; unspoiled", partOfSpeech: "Adjective" },
+    { word: "Quell", meaning: "To put an end to, typically by the use of force", partOfSpeech: "Verb" },
+    { word: "Ravish", meaning: "To seize and carry off someone by force", partOfSpeech: "Verb" },
+    { word: "Sublime", meaning: "Of such excellence or beauty as to inspire awe", partOfSpeech: "Adjective" },
+    { word: "Tangible", meaning: "Perceptible by touch", partOfSpeech: "Adjective" },
+    { word: "Unison", meaning: "Simultaneous performance or utterance of action or speech", partOfSpeech: "Noun" },
+    { word: "Virtuous", meaning: "Having or showing high moral standards", partOfSpeech: "Adjective" },
+    { word: "Wary", meaning: "Feeling or showing caution about possible dangers", partOfSpeech: "Adjective" },
+    { word: "Yield", meaning: "To produce or provide", partOfSpeech: "Verb" },
+    { word: "Zenith", meaning: "The time at which something is most powerful or successful", partOfSpeech: "Noun" },
+    { word: "Affinity", meaning: "A natural liking for or attraction to something", partOfSpeech: "Noun" },
+    { word: "Bolster", meaning: "To support or strengthen", partOfSpeech: "Verb" },
+    { word: "Conundrum", meaning: "A confusing and difficult problem or question", partOfSpeech: "Noun" },
+    { word: "Dexterous", meaning: "Demonstrating neat skill, especially with the hands", partOfSpeech: "Adjective" },
+    { word: "Elusive", meaning: "Difficult to find, catch, or achieve", partOfSpeech: "Adjective" },
+    { word: "Frivolous", meaning: "Not having any serious purpose or value", partOfSpeech: "Adjective" },
+    { word: "Haphazard", meaning: "Lacking any obvious principle of organization", partOfSpeech: "Adjective" },
+    { word: "Incisive", meaning: "Intelligently analytical and clear-thinking", partOfSpeech: "Adjective" },
+    { word: "Jubilant", meaning: "Feeling or expressing great happiness and triumph", partOfSpeech: "Adjective" },
+    { word: "Kudos", meaning: "Praise and honor received for an achievement", partOfSpeech: "Noun" },
+    { word: "Lament", meaning: "To express sorrow, regret, or unhappiness", partOfSpeech: "Verb" },
+    { word: "Mundane", meaning: "Lacking interest or excitement; dull", partOfSpeech: "Adjective" },
+    { word: "Negate", meaning: "To make ineffective; nullify", partOfSpeech: "Verb" },
+    { word: "Obstinate", meaning: "Stubbornly refusing to change one's opinion", partOfSpeech: "Adjective" },
+    { word: "Paradox", meaning: "A seemingly absurd or contradictory statement that may be true", partOfSpeech: "Noun" },
+    { word: "Quirk", meaning: "A peculiar behavioral habit", partOfSpeech: "Noun" },
+    { word: "Revere", meaning: "To feel deep respect or admiration for", partOfSpeech: "Verb" },
+    { word: "Stalwart", meaning: "Loyal, reliable, and hardworking", partOfSpeech: "Adjective" },
+    { word: "Transient", meaning: "Lasting only for a short time; impermanent", partOfSpeech: "Adjective" },
+    { word: "Ubiquitous", meaning: "Present, appearing, or found everywhere", partOfSpeech: "Adjective" },
+    { word: "Venerate", meaning: "To regard with great respect", partOfSpeech:"Adjective" },
+
+        ]
+            let currentIndex = 0;
+
+            function displayWords() {
+                const wordList = document.getElementById("wordList");
+                wordList.innerHTML = "";
+
+                for (let i = 0; i < 3; i++) {
+                    if (currentIndex >= words.length) {
+                        currentIndex = 0;
+                    }
+
+                    const word = words[currentIndex];
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `<strong>${currentIndex + 1}. ${word.word}</strong> (${word.partOfSpeech}) - ${word.meaning}`;
+                    wordList.appendChild(listItem);
+
+                    currentIndex++;
+                }
+            }
+
+            document.getElementById("vocabularyLink").addEventListener("click", (event) => {
+                event.preventDefault();
+                displayWords();
+            });
+
+            const grammarSection = document.getElementById("grammar");
+            document.getElementById("grammarLink").addEventListener("click", (event) => {
+                event.preventDefault();
+                grammarSection.style.display = grammarSection.style.display === "block" ? "none" : "block";
+            });
+
+            // Initial display
+            displayWords();
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn English. All rights reserved.</p>
     </footer>
 </body>
 </html>
