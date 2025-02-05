@@ -126,9 +126,9 @@
     <nav>
         <a href="#vocabulary" id="vocabularyLink">Vocabulary</a>
         <a href="#grammar" id="grammarLink">Grammar</a>
-        <a href="#listening">Listening</a>
-        <a href="#speaking">Speaking</a>
-        <a href="#reading">Reading</a>
+        <a href="#toggleAudio">Listening</a>
+       
+        <a href="#reading" id="nextParagraph">Reading</a>
         <a href="#writing">Writing</a>
     </nav>
 
@@ -530,30 +530,109 @@
     
         <ul>
             <li>
-                <strong>Lesson 1: Greetings and Introductions</strong>
-                <audio controls>
+                <strong id="audio1">Lesson 1: Greetings and Introductions</strong>
+                <audio controls class="listening-audio">
                     <source src="audio/greetings.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </li>
             <li>
-                <strong>Lesson 2: Asking for Directions</strong>
-                <audio controls>
+                <strong id="audio2">Lesson 2: Asking for Directions</strong>
+                <audio controls class="listening-audio">
                     <source src="audio/directions.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </li>
             <li>
-                <strong>Lesson 3: Ordering Food at a Restaurant</strong>
-                <audio controls>
+                <strong id="audio3">Lesson 3: Ordering Food at a Restaurant</strong>
+                <audio controls class="listening-audio">
                     <source src="audio/restaurant.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </li>
         </ul>
+    
+        <button id="toggleAudio">Next Audio</button>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let audios = document.querySelectorAll(".listening-audio");
+                let currentAudioIndex = 0;
+    
+                // Hide all audios except the first one
+                audios.forEach((audio, index) => {
+                    if (index !== 0) audio.style.display = "none";
+                });
+    
+                document.getElementById("toggleAudio").addEventListener("click", function () {
+                    audios[currentAudioIndex].style.display = "none"; // Hide current audio
+    
+                    // Increment index by 2 to show 2 audios at a time
+                    currentAudioIndex = (currentAudioIndex + 2) % audios.length;
+    
+                    audios[currentAudioIndex].style.display = "block"; // Show next audio
+                    if (audios[currentAudioIndex + 1]) {
+                        audios[currentAudioIndex + 1].style.display = "block"; // Show second audio
+                    }
+                });
+            });
+        </script>
     </section>
     
+ 
+    <section>
+        <div class="firstparagraph">
+            <h3>**The Legend of the Lachants: Guardians of the Eternal Flame**</h3>
+            <p>
 
+                In the heart of the vast and untamed lands of Eldoria, where towering mountains kissed the heavens and endless forests whispered secrets of the past, there existed a legendary order known as the Lachants. They were not merely warriors; they were protectors of wisdom, seekers of truth, and defenders of the sacred Eternal Flame—a mystical source of power said to hold the essence of life itself.
+                
+                The Lachants were not born; they were forged. From the time they were children, those chosen to walk the path of the Lachants endured rigorous training in combat, philosophy, and the ancient arts of balance. Their creed was simple yet profound: "Strength without wisdom is reckless, wisdom without courage is hollow." Every Lachant bore a mark—a glowing sigil on their forearm that only revealed itself when their soul aligned with the principles of honor, duty, and sacrifice.
+                
+                Among them, there was one who would change the course of history—Kaelen, a boy born of unknown lineage, raised in the humble village of Durnhelm. Unlike the others, he did not come from a prestigious bloodline nor possess any remarkable strength. He was small, often overlooked, and mocked for his dreams of becoming a Lachant. But what Kaelen lacked in might, he compensated with unwavering determination.
+                
+                From dawn till dusk, he trained relentlessly, absorbing every lesson like a sponge. He listened to the whispers of the elders, studied the movements of the great warriors, and, most of all, refused to surrender to despair. His persistence caught the attention of Master Eldric, the grand mentor of the Lachants, who saw in him a spark that no trials could extinguish.
+                
+                As the years passed, Kaelen rose through the ranks, proving time and time again that true strength came from within. When the kingdom faced its darkest hour—an invasion by the ruthless warlord, Morvath the Devourer—the Lachants stood as the last line of defense. The Eternal Flame flickered, its light waning under the corruption of Morvath’s dark magic.
+                
+                Many Lachants fell, their spirits returning to the heavens, but Kaelen fought with a heart unbreakable. In a final, desperate battle, he stood alone against Morvath, his body battered, his sword nearly shattered. But in that moment of despair, the Eternal Flame responded to his unwavering resolve, igniting within him a power unseen for centuries.
+                
+                With a single strike, fueled by courage and the spirit of all those who had come before him, Kaelen vanquished Morvath, restoring balance to the land. He did not claim the throne, nor did he bask in the glory of victory. Instead, he became the keeper of the Eternal Flame, ensuring that its light would never fade.
+                
+                Generations later, the legend of Kaelen and the Lachants still echoes through Eldoria, inspiring those who dare to dream, to fight, and to stand firm against the darkness. For the true essence of a Lachant is not found in strength alone, but in the unyielding spirit that refuses to falter, even when all seems lost.
+                
+                Yet, even as the years passed and peace reigned, a shadow began to stir once more. Whispers spoke of an ancient evil awakening in the forgotten corners of the world. The Eternal Flame burned with a strange, flickering intensity, as though warning of an impending threat. 
+                
+                New generations of Lachants, guided by Kaelen’s teachings, took up the mantle, ready to stand against whatever darkness lay ahead. And so, the cycle continued—the eternal battle between light and shadow, the unwavering duty of the Lachants, and the legend of a boy who rose from nothing to become the greatest warrior Eldoria had ever known.
+                
+                For as long as the Eternal Flame burned, the Lachants would remain, guardians of hope, champions of honor, and protectors of the realm.
+                
+                </p>
+        </div>
+        <div class="secondparagraph" style="display: none;">
+            <h3>The Forgotten Diary</h3>
+            <p>Sarah loved exploring antique stores, searching for hidden gems. One day, she stumbled upon an old leather-bound diary with a faded name on the cover. As she flipped through the pages, she discovered the thoughts of a young woman from the 1800s. The entries spoke of love, heartbreak, and a mysterious disappearance. Sarah felt compelled to uncover what had happened all those years ago.</p>
+        </div>
+       
+      
+       
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let paragraphs = document.querySelectorAll(".firstparagraph, .secondparagraph");
+                let currentParagraphIndex = 0;
+                
+                document.getElementById("nextParagraph").addEventListener("click", function (event) {
+                    event.preventDefault();
+                    paragraphs[currentParagraphIndex].style.display = "none";
+                    currentParagraphIndex = (currentParagraphIndex + 1) % paragraphs.length;
+                    paragraphs[currentParagraphIndex].style.display = "block";
+                });
+            });
+        </script>       
+
+    </section>
+    
+    
     <footer>
         <p>&copy; 2025 Learn English. All rights reserved.</p>
     </footer>
