@@ -25,40 +25,345 @@
     <header>
         <h1>Master C++ Programming - The Beast Way</h1>
     </header>
-    <nav>
-        <a href="#intro">Introduction</a>
-        <a href="#syntax">Syntax</a>
-        <a href="#oop">Object-Oriented Programming</a>
-        <a href="#projects">Projects</a>
-    </nav>
+   
+ 
     <div class="container">
-        <div id="intro" class="lesson">
+        <div id="intro" class="lesson" onclick="toggleLesson('intro-content')">
             <h2>Introduction to C++</h2>
             <p>C++ is a beast-level programming language that powers high-performance systems, game engines, and real-time applications. Master it, and you master the code world!</p>
+            <div id="intro-content" class="lesson-content" style="display: none;">
+                <h3>What is C++?</h3>
+                <p>C++ is a powerful, general-purpose programming language developed as an extension of the C programming language. It offers object-oriented features, low-level memory manipulation, and high performance.</p>
+        
+                <h3>Key Features:</h3>
+                <ul>
+                    <li><strong>Object-Oriented:</strong> Supports classes and objects.</li>
+                    <li><strong>Performance:</strong> Provides high-speed execution.</li>
+                    <li><strong>Flexibility:</strong> Used for system programming, game development, and more.</li>
+                    <li><strong>Standard Library:</strong> Includes data structures, algorithms, and input/output facilities.</li>
+                </ul>
+        
+           
+        </code>
+                </pre>
+        
+                <h3>Explanation:</h3>
+                <ul>
+                    <li><strong>#include &lt;iostream&gt;:</strong> Includes the Input/Output stream library.</li>
+                    <li><strong>using namespace std;</strong> Allows the use of standard library symbols.</li>
+                    <li><strong>int main():</strong> Entry point of the program.</li>
+                    <li><strong>cout:</strong> Prints output to the console.</li>
+                    <li><strong>endl:</strong> Ends the line and flushes the output buffer.</li>
+                </ul>
+            </div>
         </div>
-        <div id="syntax" class="lesson">
-            <h2>Basic Syntax - Tame the Beast</h2>
-            <p>The beast's first roar in C++:</p>
-            <pre><code>#include &lt;iostream&gt;
-using namespace std;
-int main() {
-    cout << "Beast Mode Activated!" << endl;
-    return 0;
-}</code></pre>
+        
+        <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+        </script>
+      <div id="syntax" class="lesson" onclick="toggleLesson('syntax-content')">
+        <h2>Basic Syntax</h2>
+        <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+    int main() {
+        cout << "Beast Mode Activated!" << endl;
+        return 0;
+    }</code></pre>
+        <div id="syntax-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <ul>
+                <li><strong>#include &lt;iostream&gt;:</strong> Includes the Input/Output stream library.</li>
+                <li><strong>using namespace std;</strong> Allows the use of standard library symbols without qualifying them.</li>
+                <li><strong>int main():</strong> Entry point of the C++ program.</li>
+                <li><strong>cout:</strong> Used to output data to the console.</li>
+                <li><strong>endl:</strong> Ends the current line and flushes the output buffer.</li>
+                <li><strong>return 0;:</strong> Indicates that the program terminated successfully.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+        <div id="variables" class="lesson">
+            <h2>Variables & Data Types</h2>
+            <p>Variables are containers for storing data values. Data types specify the type of data that a variable can hold.</p>
+            <h3>Basic Data Types:</h3>
+        
+            <p>Each of these data types serves a unique purpose in C++ programming:</p>
+            <ul>
+                <li><strong>int</strong>: Used for whole numbers. Example: int count = 10;</li>
+                <li><strong>float</strong>: Used for decimal numbers with single precision. Example: float temperature = 36.6;</li>
+                <li><strong>double</strong>: Used for decimal numbers with double precision. Example: double largeValue = 12345.6789;</li>
+                <li><strong>char</strong>: Used to store a single character. Example: char initial = 'B';</li>
+                <li><strong>string</strong>: Used to store text. Requires #include &lt;string&gt;. Example: string message = "Hello";</li>
+                <li><strong>bool</strong>: Used for true/false values. Example: bool isReady = true;</li>
+            </ul>
+        </div>
+        <div id="control" class="lesson" onclick="toggleLesson('control-content')">
+            <h2>Control Structures</h2>
+            <p>Master if, else, switch, for, while, and do-while loops.</p>
+            <div id="control-content" class="lesson-content" style="display: none;">
+                <h3>If-Else Statement</h3>
+                <p>Used for decision-making based on a condition.</p>
+                <pre>
+        <code>
+        int x = 10;
+        if (x > 5) {
+            std::cout << "x is greater than 5";
+        } else {
+            std::cout << "x is less than or equal to 5";
+        }
+        </code>
+                </pre>
+        
+                <h3>Switch Statement</h3>
+                <p>Used when you need to select one option from many based on an integer or character value.</p>
+                <pre>
+        <code>
+        int day = 3;
+        switch (day) {
+            case 1:
+                std::cout << "Monday";
+                break;
+            case 2:
+                std::cout << "Tuesday";
+                break;
+            default:
+                std::cout << "Other day";
+        }
+        </code>
+                </pre>
+        
+                <h3>For Loop</h3>
+                <p>Used to execute a block of code multiple times with a counter.</p>
+                <pre>
+        <code>
+        for (int i = 0; i < 5; i++) {
+            std::cout << "Iteration: " << i << "\n";
+        }
+        </code>
+                </pre>
+        
+                <h3>While Loop</h3>
+                <p>Executes a block of code as long as a condition is true.</p>
+                <pre>
+        <code>
+        int i = 0;
+        while (i < 5) {
+            std::cout << "Value: " << i << "\n";
+            i++;
+        }
+        </code>
+                </pre>
+        
+                <h3>Do-While Loop</h3>
+                <p>Similar to `while`, but guarantees at least one execution.</p>
+                <pre>
+        <code>
+        int i = 0;
+        do {
+            std::cout << "Value: " << i << "\n";
+            i++;
+        } while (i < 5);
+        </code>
+                </pre>
+            </div>
+        </div>
+        
+        <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+        </script>
+        
+       
+        
+        <div id="functions" class="lesson" onclick="toggleLesson('functions-content')">
+            <h2>Functions</h2>
+            <p>Understand how to create and use functions for modular code.</p>
+            <div id="functions-content" class="lesson-content" style="display: none;">
+                <h3>What Are Functions?</h3>
+                <p>Functions are blocks of code designed to perform specific tasks. They help organize your code into reusable and modular parts.</p>
+        
+                <h3>Types of Functions:</h3>
+                <ul>
+                    <li><strong>Built-in Functions:</strong> Predefined functions like <code>cout</code>, <code>cin</code>, etc.</li>
+                    <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
+                </ul>
+        
+                <h3>Syntax:</h3>
+                <pre>
+        <code>
+        returnType functionName(parameters) {
+            // body of the function
+        }
+        </code>
+                </pre>
+        
+                <h3>Example:</h3>
+                <pre>
+        <code>
+        #include &lt;iostream&gt;
+        using namespace std;
+        
+        // Function to add two numbers
+        int add(int a, int b) {
+            return a + b;
+        }
+        
+        int main() {
+            int result = add(10, 20);
+            cout << "Sum: " << result << endl;
+            return 0;
+        }
+        </code>
+                </pre>
+        
+                <h3>Explanation:</h3>
+                <ul>
+                    <li><strong>Return Type:</strong> Specifies the data type of the value the function will return (e.g., <code>int</code>).</li>
+                    <li><strong>Function Name:</strong> Identifies the function (e.g., <code>add</code>).</li>
+                    <li><strong>Parameters:</strong> Inputs passed into the function (e.g., <code>a</code> and <code>b</code>).</li>
+                    <li><strong>Function Body:</strong> Contains the statements to execute.</li>
+                    <li><strong>Return Statement:</strong> Sends the result back to the caller.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+        </script>
+    </div>
+    <div id="control" class="lesson" onclick="toggleLesson('control-content')">
+        <h2>Control Structures</h2>
+        <p>Master if, else, switch, for, while, and do-while loops.</p>
+        <div id="control-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <ul>
+                <li><strong>if:</strong> Executes a block of code if a condition is true.</li>
+                <li><strong>else:</strong> Executes a block of code if the condition is false.</li>
+                <li><strong>switch:</strong> Selects one of many code blocks to execute based on a variable's value.</li>
+                <li><strong>for loop:</strong> Loops through a block of code a number of times.</li>
+                <li><strong>while loop:</strong> Loops through a block of code while a condition is true.</li>
+                <li><strong>do-while loop:</strong> Executes a block of code once, and then repeats as long as a condition is true.</li>
+            </ul>
+            <h3>Examples:</h3>
+            <pre><code>
+    if (x > 0) {
+        cout << "Positive";
+    } else {
+        cout << "Non-positive";
+    }
+    
+    switch (x) {
+        case 1:
+            cout << "One";
+            break;
+        case 2:
+            cout << "Two";
+            break;
+        default:
+            cout << "Other";
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        cout << i << " ";
+    }
+    
+    int i = 0;
+    while (i < 5) {
+        cout << i << " ";
+        i++;
+    }
+    
+    do {
+        cout << i << " ";
+        i++;
+    } while (i < 5);
+            </code></pre>
+        </div>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+        <div id="functions" class="lesson">
+            <h2>Functions</h2>
+            <p>Understand how to create and use functions for modular code.</p>
+        </div>
+        <div id="arrays" class="lesson">
+            <h2>Arrays</h2>
+            <p>Learn how to handle arrays for data storage.</p>
+        </div>
+        <div id="pointers" class="lesson">
+            <h2>Pointers</h2>
+            <p>Understand memory management with pointers.</p>
         </div>
         <div id="oop" class="lesson">
-            <h2>Object-Oriented Programming - Unleash the Power</h2>
-            <p>Unleash the beast with classes and objects:</p>
-            <pre><code>class Beast {
-public:
-    string power;
-    Beast(string p) { power = p; }
-    void roar() { cout << "Unleashing: " << power << endl; }
-};</code></pre>
+            <h2>Object-Oriented Programming</h2>
+            <p>Classes, objects, inheritance, and polymorphism.</p>
+        </div>
+        <div id="templates" class="lesson">
+            <h2>Templates</h2>
+            <p>Discover generic programming with templates.</p>
+        </div>
+        <div id="exceptions" class="lesson">
+            <h2>Exception Handling</h2>
+            <p>Handle errors like a pro using try, catch, and throw.</p>
+        </div>
+        <div id="file" class="lesson">
+            <h2>File Handling</h2>
+            <p>Learn how to read and write files in C++.</p>
+        </div>
+        <div id="stl" class="lesson">
+            <h2>Standard Template Library (STL)</h2>
+            <p>Master vectors, lists, sets, and maps.</p>
+        </div>
+        <div id="advanced" class="lesson">
+            <h2>Advanced Topics</h2>
+            <p>Explore smart pointers, multithreading, and more.</p>
+        </div>
+        <div id="memory" class="lesson">
+            <h2>Memory Management</h2>
+            <p>Dynamic memory allocation with new and delete.</p>
+        </div>
+        <div id="operators" class="lesson">
+            <h2>Operator Overloading</h2>
+            <p>Customize operators for your classes.</p>
+        </div>
+        <div id="namespaces" class="lesson">
+            <h2>Namespaces</h2>
+            <p>Avoid name conflicts with namespaces.</p>
+        </div>
+        <div id="preprocessors" class="lesson">
+            <h2>Preprocessor Directives</h2>
+            <p>Macros, #define, #ifdef, and more.</p>
+        </div>
+        <div id="multithreading" class="lesson">
+            <h2>Multithreading</h2>
+            <p>Parallel programming with threads.</p>
         </div>
         <div id="projects" class="lesson">
-            <h2>Projects - Build Like a Beast</h2>
-            <p>Show your beast mode by creating epic projects like a game engine, an AI-powered bot, or a custom operating system.</p>
+            <h2>Projects</h2>
+            <p>Show your beast mode by creating real-world projects.</p>
         </div>
     </div>
     <footer>
