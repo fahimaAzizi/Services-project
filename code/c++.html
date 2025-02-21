@@ -305,18 +305,135 @@
         content.style.display = content.style.display === 'none' ? 'block' : 'none';
     }
     </script>
-        <div id="functions" class="lesson">
-            <h2>Functions</h2>
-            <p>Understand how to create and use functions for modular code.</p>
+       <div id="functions" class="lesson" onclick="toggleLesson('functions-content')">
+        <h2>Functions</h2>
+        <p>Understand how to create and use functions for modular code.</p>
+        <div id="functions-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>Functions are blocks of code that perform a specific task. They help in organizing code, making it reusable and easier to debug.</p>
+            <h3>Example:</h3>
+            <pre><code>
+    #include &lt;iostream&gt;
+    using namespace std;
+    
+    void greet() {
+        cout << "Hello, World!" << endl;
+    }
+    
+    int add(int a, int b) {
+        return a + b;
+    }
+    
+    int main() {
+        greet();
+        int sum = add(5, 3);
+        cout << "Sum: " << sum << endl;
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="arrays" class="lesson">
-            <h2>Arrays</h2>
-            <p>Learn how to handle arrays for data storage.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+     <div id="arrays" class="lesson" onclick="toggleLesson('arrays-content')">
+        <h2>Arrays</h2>
+        <p>Learn how to handle arrays for data storage.</p>
+        <div id="arrays-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>An array is a collection of elements of the same type stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int arr[5];</code> declares an array of 5 integers.</li>
+                <li><strong>Access:</strong> <code>arr[0]</code> accesses the first element.</li>
+                <li><strong>Looping:</strong> Use loops to iterate over arrays efficiently.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int arr[5] = {1, 2, 3, 4, 5};
+        for (int i = 0; i < 5; i++) {
+            cout << arr[i] << " ";
+        }
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="pointers" class="lesson">
-            <h2>Pointers</h2>
-            <p>Understand memory management with pointers.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+     <div id="arrays" class="lesson" onclick="toggleLesson('arrays-content')">
+        <h2>Arrays</h2>
+        <p>Learn how to handle arrays for data storage.</p>
+        <div id="arrays-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>An array is a collection of elements of the same type stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int arr[5];</code> declares an array of 5 integers.</li>
+                <li><strong>Access:</strong> <code>arr[0]</code> accesses the first element.</li>
+                <li><strong>Looping:</strong> Use loops to iterate over arrays efficiently.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int arr[5] = {1, 2, 3, 4, 5};
+        for (int i = 0; i < 5; i++) {
+            cout << arr[i] << " ";
+        }
+        return 0;
+    }
+            </code></pre>
         </div>
+    </div>
+    
+    <div id="pointers" class="lesson" onclick="toggleLesson('pointers-content')">
+        <h2>Pointers</h2>
+        <p>Understand memory management with pointers.</p>
+        <div id="pointers-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>A pointer is a variable that stores the memory address of another variable. Pointers allow direct memory manipulation, which is useful in systems programming, dynamic memory allocation, and data structures.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int* ptr;</code> declares a pointer to an integer.</li>
+                <li><strong>Initialization:</strong> <code>ptr = &x;</code> assigns the address of <code>x</code> to <code>ptr</code>.</li>
+                <li><strong>Dereferencing:</strong> <code>*ptr</code> accesses the value stored at the pointer's address.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int x = 10;
+        int* ptr = &x;
+        cout << "Value of x: " << x << endl;
+        cout << "Pointer address: " << ptr << endl;
+        cout << "Value at pointer: " << *ptr << endl;
+        return 0;
+    }
+            </code></pre>
+        </div>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
         <div id="oop" class="lesson">
             <h2>Object-Oriented Programming</h2>
             <p>Classes, objects, inheritance, and polymorphism.</p>
@@ -371,3 +488,5 @@
     </footer>
 </body>
 </html>
+
+            
