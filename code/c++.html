@@ -596,10 +596,51 @@ function toggleLesson(id) {
 }
 </script>
 
-        <div id="advanced" class="lesson">
-            <h2>Advanced Topics</h2>
-            <p>Explore smart pointers, multithreading, and more.</p>
-        </div>
+<div id="advanced" class="lesson" onclick="toggleLesson('advanced-content')">
+    <h2>Advanced Topics</h2>
+    <p>Explore smart pointers, multithreading, and more.</p>
+    <div id="advanced-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Advanced topics in C++ cover a range of powerful features:</p>
+        <ul>
+            <li><strong>Smart Pointers:</strong> Automatically manage dynamic memory using <code>unique_ptr</code>, <code>shared_ptr</code>, and <code>weak_ptr</code>.</li>
+            <li><strong>Multithreading:</strong> Execute multiple threads concurrently for efficient program execution using the <code>thread</code> library.</li>
+            <li><strong>Lambda Functions:</strong> Define anonymous functions for quick, inline operations.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+#include <memory>
+#include <thread>
+using namespace std;
+
+void print() {
+    cout << "Thread running!" << endl;
+}
+
+int main() {
+    // Smart pointer example
+    unique_ptr<int> ptr = make_unique<int>(10);
+    cout << "Smart Pointer Value: " << *ptr << endl;
+
+    // Multithreading example
+    thread t(print);
+    t.join();
+
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+        
         <div id="memory" class="lesson">
             <h2>Memory Management</h2>
             <p>Dynamic memory allocation with new and delete.</p>
