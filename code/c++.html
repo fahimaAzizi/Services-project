@@ -673,10 +673,40 @@ function toggleLesson(id) {
     content.style.display = content.style.display === 'none' ? 'block' : 'none';
 }
 </script>
-        <div id="operators" class="lesson">
-            <h2>Operator Overloading</h2>
-            <p>Customize operators for your classes.</p>
-        </div>
+       <div id="namespaces" class="lesson" onclick="toggleLesson('namespaces-content')">
+    <h2>Namespaces</h2>
+    <p>Avoid name conflicts with namespaces.</p>
+    <div id="namespaces-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Namespaces in C++ are used to organize code into logical groups and prevent name conflicts. They allow you to create distinct variable, function, and class names.</p>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+using namespace std;
+
+namespace First {
+    int value = 100;
+}
+
+namespace Second {
+    int value = 200;
+}
+
+int main() {
+    cout << First::value << endl;  // Access value from First namespace
+    cout << Second::value << endl; // Access value from Second namespace
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
         <div id="namespaces" class="lesson">
             <h2>Namespaces</h2>
             <p>Avoid name conflicts with namespaces.</p>
