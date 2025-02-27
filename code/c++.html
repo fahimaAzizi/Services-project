@@ -707,10 +707,36 @@ function toggleLesson(id) {
     content.style.display = content.style.display === 'none' ? 'block' : 'none';
 }
 </script>
-        <div id="namespaces" class="lesson">
-            <h2>Namespaces</h2>
-            <p>Avoid name conflicts with namespaces.</p>
-        </div>
+<div id="namespaces" class="lesson" onclick="toggleLesson('namespaces-content')">
+    <h2>Namespaces</h2>
+    <p>Avoid name conflicts with namespaces.</p>
+    <div id="namespaces-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Namespaces in C++ are used to group variables, functions, and classes under a unique name, preventing name conflicts when multiple libraries are used.</p>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+using namespace std;
+
+namespace BeastMode {
+    int x = 42;
+}
+
+int main() {
+    cout << BeastMode::x << endl; // Access variable using namespace
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
         <div id="preprocessors" class="lesson">
             <h2>Preprocessor Directives</h2>
             <p>Macros, #define, #ifdef, and more.</p>
