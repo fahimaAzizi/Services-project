@@ -305,66 +305,556 @@
         content.style.display = content.style.display === 'none' ? 'block' : 'none';
     }
     </script>
-        <div id="functions" class="lesson">
-            <h2>Functions</h2>
-            <p>Understand how to create and use functions for modular code.</p>
+       <div id="functions" class="lesson" onclick="toggleLesson('functions-content')">
+        <h2>Functions</h2>
+        <p>Understand how to create and use functions for modular code.</p>
+        <div id="functions-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>Functions are blocks of code that perform a specific task. They help in organizing code, making it reusable and easier to debug.</p>
+            <h3>Example:</h3>
+            <pre><code>
+    #include &lt;iostream&gt;
+    using namespace std;
+    
+    void greet() {
+        cout << "Hello, World!" << endl;
+    }
+    
+    int add(int a, int b) {
+        return a + b;
+    }
+    
+    int main() {
+        greet();
+        int sum = add(5, 3);
+        cout << "Sum: " << sum << endl;
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="arrays" class="lesson">
-            <h2>Arrays</h2>
-            <p>Learn how to handle arrays for data storage.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+     <div id="arrays" class="lesson" onclick="toggleLesson('arrays-content')">
+        <h2>Arrays</h2>
+        <p>Learn how to handle arrays for data storage.</p>
+        <div id="arrays-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>An array is a collection of elements of the same type stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int arr[5];</code> declares an array of 5 integers.</li>
+                <li><strong>Access:</strong> <code>arr[0]</code> accesses the first element.</li>
+                <li><strong>Looping:</strong> Use loops to iterate over arrays efficiently.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int arr[5] = {1, 2, 3, 4, 5};
+        for (int i = 0; i < 5; i++) {
+            cout << arr[i] << " ";
+        }
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="pointers" class="lesson">
-            <h2>Pointers</h2>
-            <p>Understand memory management with pointers.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+     <div id="arrays" class="lesson" onclick="toggleLesson('arrays-content')">
+        <h2>Arrays</h2>
+        <p>Learn how to handle arrays for data storage.</p>
+        <div id="arrays-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>An array is a collection of elements of the same type stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int arr[5];</code> declares an array of 5 integers.</li>
+                <li><strong>Access:</strong> <code>arr[0]</code> accesses the first element.</li>
+                <li><strong>Looping:</strong> Use loops to iterate over arrays efficiently.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int arr[5] = {1, 2, 3, 4, 5};
+        for (int i = 0; i < 5; i++) {
+            cout << arr[i] << " ";
+        }
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="oop" class="lesson">
-            <h2>Object-Oriented Programming</h2>
-            <p>Classes, objects, inheritance, and polymorphism.</p>
+    </div>
+    
+    <div id="pointers" class="lesson" onclick="toggleLesson('pointers-content')">
+        <h2>Pointers</h2>
+        <p>Understand memory management with pointers.</p>
+        <div id="pointers-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>A pointer is a variable that stores the memory address of another variable. Pointers allow direct memory manipulation, which is useful in systems programming, dynamic memory allocation, and data structures.</p>
+            <ul>
+                <li><strong>Declaration:</strong> <code>int* ptr;</code> declares a pointer to an integer.</li>
+                <li><strong>Initialization:</strong> <code>ptr = &x;</code> assigns the address of <code>x</code> to <code>ptr</code>.</li>
+                <li><strong>Dereferencing:</strong> <code>*ptr</code> accesses the value stored at the pointer's address.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        int x = 10;
+        int* ptr = &x;
+        cout << "Value of x: " << x << endl;
+        cout << "Pointer address: " << ptr << endl;
+        cout << "Value at pointer: " << *ptr << endl;
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="templates" class="lesson">
-            <h2>Templates</h2>
-            <p>Discover generic programming with templates.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+      <div id="oop" class="lesson" onclick="toggleLesson('oop-content')">
+        <h2>Object-Oriented Programming</h2>
+        <p>Classes, objects, inheritance, and polymorphism.</p>
+        <div id="oop-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and methods. Key concepts include:</p>
+            <ul>
+                <li><strong>Class:</strong> A blueprint for creating objects (e.g., <code>class Car</code>).</li>
+                <li><strong>Object:</strong> An instance of a class (e.g., <code>Car myCar;</code>).</li>
+                <li><strong>Inheritance:</strong> Allows a class to inherit properties and methods from another class.</li>
+                <li><strong>Polymorphism:</strong> Allows methods to do different things based on the object it is acting upon.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    class Car {
+    public:
+        string brand;
+        int year;
+    
+        void display() {
+            cout << "Brand: " << brand << ", Year: " << year << endl;
+        }
+    };
+    
+    int main() {
+        Car myCar;
+        myCar.brand = "Toyota";
+        myCar.year = 2020;
+        myCar.display();
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="exceptions" class="lesson">
-            <h2>Exception Handling</h2>
-            <p>Handle errors like a pro using try, catch, and throw.</p>
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+      
+      
+      <div id="templates" class="lesson" onclick="toggleLesson('templates-content')">
+        <h2>Templates</h2>
+        <p>Discover generic programming with templates.</p>
+        <div id="templates-content" class="lesson-content" style="display: none;">
+            <h3>Explanation:</h3>
+            <p>Templates in C++ allow you to write generic and reusable code. They enable functions and classes to operate with any data type without rewriting code for each type.</p>
+            <ul>
+                <li><strong>Function Templates:</strong> Define functions with a placeholder type.</li>
+                <li><strong>Class Templates:</strong> Create classes that work with any data type.</li>
+            </ul>
+            <h3>Example:</h3>
+            <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    // Function template
+    template <typename T>
+    T add(T a, T b) {
+        return a + b;
+    }
+    
+    int main() {
+        cout << add(5, 3) << endl; // Integers
+        cout << add(5.5, 2.2) << endl; // Floats
+        return 0;
+    }
+            </code></pre>
         </div>
-        <div id="file" class="lesson">
+    </div>
+    
+    <script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+    </script>
+        <div id="file" class="lesson" onclick="toggleLesson('file-content')">
             <h2>File Handling</h2>
             <p>Learn how to read and write files in C++.</p>
+            <div id="file-content" class="lesson-content" style="display: none;">
+                <h3>Explanation:</h3>
+                <p>File handling in C++ allows you to create, read, write, and close files using the fstream library.</p>
+                <ul>
+                    <li><strong>ofstream:</strong> Used for writing to files.</li>
+                    <li><strong>ifstream:</strong> Used for reading from files.</li>
+                    <li><strong>fstream:</strong> Used for both reading and writing.</li>
+                </ul>
+                <h3>Example:</h3>
+                <pre><code>
+        #include <iostream>
+        #include <fstream>
+        using namespace std;
+        
+        int main() {
+            ofstream myfile("example.txt");
+            myfile << "Hello, File!";
+            myfile.close();
+        
+            ifstream readfile("example.txt");
+            string line;
+            while (getline(readfile, line)) {
+                cout << line << endl;
+            }
+            readfile.close();
+        
+            return 0;
+        }
+                </code></pre>
+            </div>
         </div>
-        <div id="stl" class="lesson">
-            <h2>Standard Template Library (STL)</h2>
-            <p>Master vectors, lists, sets, and maps.</p>
-        </div>
-        <div id="advanced" class="lesson">
-            <h2>Advanced Topics</h2>
-            <p>Explore smart pointers, multithreading, and more.</p>
-        </div>
-        <div id="memory" class="lesson">
-            <h2>Memory Management</h2>
-            <p>Dynamic memory allocation with new and delete.</p>
-        </div>
-        <div id="operators" class="lesson">
-            <h2>Operator Overloading</h2>
-            <p>Customize operators for your classes.</p>
-        </div>
-        <div id="namespaces" class="lesson">
-            <h2>Namespaces</h2>
-            <p>Avoid name conflicts with namespaces.</p>
-        </div>
-        <div id="preprocessors" class="lesson">
-            <h2>Preprocessor Directives</h2>
-            <p>Macros, #define, #ifdef, and more.</p>
-        </div>
-        <div id="multithreading" class="lesson">
-            <h2>Multithreading</h2>
-            <p>Parallel programming with threads.</p>
-        </div>
-        <div id="projects" class="lesson">
-            <h2>Projects</h2>
-            <p>Show your beast mode by creating real-world projects.</p>
-        </div>
+        
+        <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+        </script>
+       
+<div id="stl" class="lesson" onclick="toggleLesson('stl-content')">
+    <h2>Standard Template Library (STL)</h2>
+    <p>Master vectors, lists, sets, and maps.</p>
+    <div id="stl-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>The Standard Template Library (STL) in C++ provides a set of common data structures and algorithms. It includes containers like vectors, lists, sets, and maps that make data management more efficient.</p>
+        <ul>
+            <li><strong>Vectors:</strong> Dynamic arrays that can resize automatically.</li>
+            <li><strong>Lists:</strong> Doubly linked lists.</li>
+            <li><strong>Sets:</strong> Stores unique elements in sorted order.</li>
+            <li><strong>Maps:</strong> Key-value pairs, sorted by keys.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums = {1, 2, 3, 4, 5};
+    nums.push_back(6);
+    
+    for(int n : nums) {
+        cout << n << " ";
+    }
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+<div id="advanced" class="lesson" onclick="toggleLesson('advanced-content')">
+    <h2>Advanced Topics</h2>
+    <p>Explore smart pointers, multithreading, and more.</p>
+    <div id="advanced-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Advanced topics in C++ cover a range of powerful features:</p>
+        <ul>
+            <li><strong>Smart Pointers:</strong> Automatically manage dynamic memory using <code>unique_ptr</code>, <code>shared_ptr</code>, and <code>weak_ptr</code>.</li>
+            <li><strong>Multithreading:</strong> Execute multiple threads concurrently for efficient program execution using the <code>thread</code> library.</li>
+            <li><strong>Lambda Functions:</strong> Define anonymous functions for quick, inline operations.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+#include <memory>
+#include <thread>
+using namespace std;
+
+void print() {
+    cout << "Thread running!" << endl;
+}
+
+int main() {
+    // Smart pointer example
+    unique_ptr<int> ptr = make_unique<int>(10);
+    cout << "Smart Pointer Value: " << *ptr << endl;
+
+    // Multithreading example
+    thread t(print);
+    t.join();
+
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+        
+<div id="memory" class="lesson" onclick="toggleLesson('memory-content')">
+    <h2>Memory Management</h2>
+    <p>Dynamic memory allocation with new and delete.</p>
+    <div id="memory-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>In C++, dynamic memory allocation allows you to allocate memory at runtime using the <code>new</code> and <code>delete</code> operators.</p>
+        <ul>
+            <li><strong>new:</strong> Allocates memory on the heap and returns a pointer to it.</li>
+            <li><strong>delete:</strong> Frees the memory allocated by <code>new</code>.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* ptr = new int; // dynamically allocate memory for an int
+    *ptr = 42; // assign a value
+    cout << "Value: " << *ptr << endl;
+    delete ptr; // free allocated memory
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+       <div id="namespaces" class="lesson" onclick="toggleLesson('namespaces-content')">
+    <h2>Namespaces</h2>
+    <p>Avoid name conflicts with namespaces.</p>
+    <div id="namespaces-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Namespaces in C++ are used to organize code into logical groups and prevent name conflicts. They allow you to create distinct variable, function, and class names.</p>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+using namespace std;
+
+namespace First {
+    int value = 100;
+}
+
+namespace Second {
+    int value = 200;
+}
+
+int main() {
+    cout << First::value << endl;  // Access value from First namespace
+    cout << Second::value << endl; // Access value from Second namespace
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+<div id="namespaces" class="lesson" onclick="toggleLesson('namespaces-content')">
+    <h2>Namespaces</h2>
+    <p>Avoid name conflicts with namespaces.</p>
+    <div id="namespaces-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Namespaces in C++ are used to group variables, functions, and classes under a unique name, preventing name conflicts when multiple libraries are used.</p>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+using namespace std;
+
+namespace BeastMode {
+    int x = 42;
+}
+
+int main() {
+    cout << BeastMode::x << endl; // Access variable using namespace
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+<div id="preprocessors" class="lesson" onclick="toggleLesson('preprocessors-content')">
+    <h2>Preprocessor Directives</h2>
+    <p>Macros, #define, #ifdef, and more.</p>
+    <div id="preprocessors-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Preprocessor directives in C++ are instructions processed before the actual compilation of code. They typically begin with a <code>#</code> symbol and are used for including files, defining constants, and conditional compilation.</p>
+        <ul>
+            <li><strong>#define:</strong> Defines macros or constants.</li>
+            <li><strong>#include:</strong> Includes the contents of a file.</li>
+            <li><strong>#ifdef / #endif:</strong> Conditional compilation.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+#define PI 3.14
+
+using namespace std;
+
+int main() {
+    cout << "Value of PI: " << PI << endl;
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+<div id="multithreading" class="lesson" onclick="toggleLesson('multithreading-content')">
+    <h2>Multithreading</h2>
+    <p>Parallel programming with threads.</p>
+    <div id="multithreading-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Multithreading in C++ allows the execution of multiple threads concurrently, enabling parallel programming. It helps in optimizing the use of CPU by running tasks simultaneously.</p>
+        <ul>
+            <li><strong>Thread Creation:</strong> Threads can be created using the <code>std::thread</code> class from the <code>&lt;thread&gt;</code> library.</li>
+            <li><strong>Synchronization:</strong> Ensures that threads do not interfere with each other when accessing shared resources.</li>
+        </ul>
+        <h3>Example:</h3>
+        <pre><code>
+#include <iostream>
+#include <thread>
+using namespace std;
+
+void printMessage() {
+    cout << "Thread is running" << endl;
+}
+
+int main() {
+    thread t(printMessage); // Create a thread
+    t.join(); // Wait for the thread to finish
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+<div id="projects" class="lesson" onclick="toggleLesson('projects-content')">
+    <h2>Projects</h2>
+    <p>Show your beast mode by creating real-world projects.</p>
+    <div id="projects-content" class="lesson-content" style="display: none;">
+        <h3>Explanation:</h3>
+        <p>Projects are a fantastic way to apply your C++ skills. Building real-world applications not only solidifies your knowledge but also enhances your portfolio.</p>
+        <ul>
+            <li><strong>Console-based Applications:</strong> Build simple games, calculators, or management systems.</li>
+            <li><strong>File Handling Projects:</strong> Develop loggers or simple databases.</li>
+            <li><strong>Object-Oriented Projects:</strong> Design class-based projects like a student management system.</li>
+            <li><strong>Advanced Projects:</strong> Integrate multithreading, file handling, and templates into one.</li>
+        </ul>
+        <h3>Example Project Idea:</h3>
+        <pre><code>
+// Simple To-Do List Application
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> tasks;
+    string task;
+    char choice;
+
+    do {
+        cout << "Enter a task: ";
+        cin.ignore();
+        getline(cin, task);
+        tasks.push_back(task);
+
+        cout << "Add another task? (y/n): ";
+        cin >> choice;
+    } while (choice == 'y');
+
+    cout << "\nYour To-Do List:\n";
+    for (const auto &t : tasks) {
+        cout << "- " << t << endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+function toggleLesson(id) {
+    var content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+</script>
     </div>
     <footer>
         <p>&copy; 2025 Master C++ - Beast Mode. All rights reserved.</p>
