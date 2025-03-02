@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Java</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Dark theme */
+            color: #fff; /* White text */
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .class-card {
+            background-color: #242424; /* Card background */
+            color: #00ffcc; /* Teal text */
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .class-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+        }
+
+        .class-details {
+            flex: 1;
+        }
+
+        .class-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .class-details p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .class-details .btn {
+            background-color: #00ffcc;
+            color: #121212;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .class-details .btn:hover {
+            background-color: #ff0077;
+            color: #fff;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .filter-bar input {
+            width: 70%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .filter-bar select {
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .lesson {
+            background-color: #242424;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: 1px solid #00ffcc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .lesson-content {
+            display: none;
+            background-color: #333;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 3px solid #00ffcc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Advanced Java</h1>
+    </header>
+    <main>
+        <div class="filter-bar">
+            <input type="text" placeholder="Search topics...">
+            <select>
+                <option value="all">All</option>
+                <option value="basics">Basics</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+
+        <div id="oop" class="lesson" onclick="toggleLesson('oop-content')">
+            <h2>Object-Oriented Programming (OOP)</h2>
+            <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p>
+            <div id="oop-content" class="lesson-content">
+                <p>OOP allows you to structure code using classes and objects. It brings modularity and reusability.</p>
+            </div>
+        </div>
+
+        <div id="collections" class="lesson" onclick="toggleLesson('collections-content')">
+            <h2>Collections Framework</h2>
+            <p>Lists, Sets, Maps, and Queues explained.</p>
+            <div id="collections-content" class="lesson-content">
+                <p>Collections provide data structures like ArrayList, HashSet, and HashMap.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
