@@ -54,62 +54,6 @@
             box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
         }
 
-        .class-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 5px;
-        }
-
-        .class-details {
-            flex: 1;
-        }
-
-        .class-details h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .class-details p {
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .class-details .btn {
-            background-color: #00ffcc;
-            color: #121212;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .class-details .btn:hover {
-            background-color: #ff0077;
-            color: #fff;
-        }
-
-        .filter-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 10px 0;
-        }
-
-        .filter-bar input {
-            width: 70%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .filter-bar select {
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
         .lesson {
             background-color: #242424;
             padding: 15px;
@@ -140,28 +84,67 @@
         <h1>Advanced Java</h1>
     </header>
     <main>
-        <div class="filter-bar">
-            <input type="text" placeholder="Search topics...">
-            <select>
-                <option value="all">All</option>
-                <option value="basics">Basics</option>
-                <option value="advanced">Advanced</option>
-            </select>
-        </div>
-
-        <div id="oop" class="lesson" onclick="toggleLesson('oop-content')">
+        <div class="lesson" onclick="toggleLesson('oop-content')">
             <h2>Object-Oriented Programming (OOP)</h2>
             <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p>
             <div id="oop-content" class="lesson-content">
-                <p>OOP allows you to structure code using classes and objects. It brings modularity and reusability.</p>
+                <ul>
+                    <li>Encapsulation: Wrapping data and methods within classes.</li>
+                    <li>Inheritance: Enabling new classes to inherit from existing ones.</li>
+                    <li>Polymorphism: Methods behaving differently based on objects.</li>
+                    <li>Abstraction: Hiding implementation details and exposing functionalities.</li>
+                </ul>
             </div>
         </div>
 
-        <div id="collections" class="lesson" onclick="toggleLesson('collections-content')">
+        <div class="lesson" onclick="toggleLesson('collections-content')">
             <h2>Collections Framework</h2>
             <p>Lists, Sets, Maps, and Queues explained.</p>
             <div id="collections-content" class="lesson-content">
-                <p>Collections provide data structures like ArrayList, HashSet, and HashMap.</p>
+                <ul>
+                    <li>ArrayList: Resizable array implementation of List interface.</li>
+                    <li>HashSet: Stores unique elements, unordered.</li>
+                    <li>HashMap: Key-value pairs, allows fast retrieval.</li>
+                    <li>Queue: FIFO data structure like LinkedList and PriorityQueue.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('exceptions-content')">
+            <h2>Exception Handling</h2>
+            <p>Handle runtime errors with try-catch blocks.</p>
+            <div id="exceptions-content" class="lesson-content">
+                <ul>
+                    <li>try-catch: Handle exceptions safely.</li>
+                    <li>finally: Execute code regardless of exceptions.</li>
+                    <li>throw: Manually throw an exception.</li>
+                    <li>throws: Declare exceptions in method signatures.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('multithreading-content')">
+            <h2>Multithreading</h2>
+            <p>Achieve parallel execution using threads.</p>
+            <div id="multithreading-content" class="lesson-content">
+                <ul>
+                    <li>Thread class: Create and start threads.</li>
+                    <li>Runnable interface: Implement multi-threading.</li>
+                    <li>synchronized: Control thread access to resources.</li>
+                    <li>wait/notify: Communication between threads.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('filehandling-content')">
+            <h2>File Handling</h2>
+            <p>Read and write files using Java I/O classes.</p>
+            <div id="filehandling-content" class="lesson-content">
+                <ul>
+                    <li>FileReader/FileWriter: Read and write text files.</li>
+                    <li>BufferedReader: Efficient reading of text data.</li>
+                    <li>FileInputStream/FileOutputStream: Handle binary data.</li>
+                </ul>
             </div>
         </div>
     </main>
