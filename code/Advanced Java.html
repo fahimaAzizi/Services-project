@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Java</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .lesson {
+            background-color: #242424;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: 1px solid #00ffcc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .lesson-content {
+            display: none;
+            background-color: #333;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 3px solid #00ffcc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Advanced Java</h1>
+    </header>
+    <main>
+        <div class="lesson" onclick="toggleLesson('streams-content')">
+            <h2>Streams API</h2>
+            <p>Functional programming for processing data.</p>
+            <div id="streams-content" class="lesson-content">
+                <ul>
+                    <li>filter: Select elements based on conditions.</li>
+                    <li>map: Transform elements.</li>
+                    <li>reduce: Combine elements to a single result.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('lambda-content')">
+            <h2>Lambda Expressions</h2>
+            <p>Simplify code with functional programming concepts.</p>
+            <div id="lambda-content" class="lesson-content">
+                <ul>
+                    <li>Syntax: (parameters) -> expression</li>
+                    <li>Used for: Implementing interfaces with single methods (Functional Interfaces).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('designpatterns-content')">
+            <h2>Design Patterns</h2>
+            <p>Reusable solutions to common software design problems.</p>
+            <div id="designpatterns-content" class="lesson-content">
+                <ul>
+                    <li>Singleton: Ensure only one instance of a class exists.</li>
+                    <li>Factory: Create objects without specifying the exact class.</li>
+                    <li>Observer: Define a dependency between objects to notify changes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('networking-content')">
+            <h2>Networking</h2>
+            <p>Communicate between devices using Java.</p>
+            <div id="networking-content" class="lesson-content">
+                <ul>
+                    <li>Socket: Establish a client-server connection.</li>
+                    <li>URL: Access resources from the web.</li>
+                    <li>HttpURLConnection: Communicate using HTTP protocol.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson" onclick="toggleLesson('jdbc-content')">
+            <h2>JDBC</h2>
+            <p>Connect Java applications to databases.</p>
+            <div id="jdbc-content" class="lesson-content">
+                <ul>
+                    <li>DriverManager: Load and register drivers.</li>
+                    <li>Connection: Establish database connections.</li>
+                    <li>Statement: Execute SQL queries.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleLesson(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
