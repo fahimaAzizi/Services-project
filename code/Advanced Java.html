@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Java</title>
     <style>
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,8 +14,8 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: #fff;
+            background-color: #121212; /* Dark theme */
+            color: #fff; /* White text */
         }
 
         header {
@@ -33,6 +34,24 @@
 
         main {
             padding: 20px;
+        }
+
+        .class-card {
+            background-color: #242424; /* Card background */
+            color: #00ffcc; /* Teal text */
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
         }
 
         .lesson {
@@ -65,61 +84,153 @@
         <h1>Advanced Java</h1>
     </header>
     <main>
-        <div class="lesson" onclick="toggleLesson('streams-content')">
-            <h2>Streams API</h2>
-            <p>Functional programming for processing data.</p>
-            <div id="streams-content" class="lesson-content">
+        <main>
+            <div class="lesson" onclick="toggleLesson('oop-content')">
+                <h2>Object-Oriented Programming (OOP)</h2>
+                <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p>
+                <div id="oop-content" class="lesson-content">
+                    <h3>Encapsulation</h3>
+                    <p>Encapsulation is the concept of restricting direct access to some of the object's components and only allowing controlled access through methods.</p>
+                    <pre><code>
+    class Person {
+        private String name;
+        public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+    public class TestEncapsulation {
+        public static void main(String[] args) {
+            Person person = new Person();
+            person.setName("John");
+            System.out.println(person.getName()); // Outputs: John
+        }
+    }
+                    </code></pre>
+    
+                    <h3>Inheritance</h3>
+                    <p>Inheritance allows a class to inherit properties and behavior from another class, promoting code reuse.</p>
+                    <pre><code>
+    class Animal {
+        void eat() {
+            System.out.println("This animal eats food");
+        }
+    }
+    class Dog extends Animal {
+        void bark() {
+            System.out.println("Dog barks");
+        }
+    }
+    public class TestInheritance {
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.eat(); // Inherited method
+            dog.bark();
+        }
+    }
+                    </code></pre>
+    
+                    <h3>Polymorphism</h3>
+                    <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass. It supports method overriding.</p>
+                    <pre><code>
+    class Animal {
+        void makeSound() {
+            System.out.println("Animal makes a sound");
+        }
+    }
+    class Dog extends Animal {
+        @Override
+        void makeSound() {
+            System.out.println("Dog barks");
+        }
+    }
+    public class TestPolymorphism {
+        public static void main(String[] args) {
+            Animal myDog = new Dog();
+            myDog.makeSound(); // Outputs: Dog barks
+        }
+    }
+                    </code></pre>
+    
+                    <h3>Abstraction</h3>
+                    <p>Abstraction is the process of hiding the implementation details and only showing the functionality to the user.</p>
+                    <pre><code>
+    abstract class Shape {
+        abstract void draw();
+    }
+    class Circle extends Shape {
+        @Override
+        void draw() {
+            System.out.println("Drawing a circle");
+        }
+    }
+    public class TestAbstraction {
+        public static void main(String[] args) {
+            Shape shape = new Circle();
+            shape.draw(); // Outputs: Drawing a circle
+        }
+    }
+                    </code></pre>
+                </div>
+            </div>
+        </main>
+    
+        <script>
+            function toggleLesson(id) {
+                var content = document.getElementById(id);
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+
+        <div class="lesson" onclick="toggleLesson('collections-content')">
+            <h2>Collections Framework</h2>
+            <p>Lists, Sets, Maps, and Queues explained.</p>
+            <div id="collections-content" class="lesson-content">
                 <ul>
-                    <li>filter: Select elements based on conditions.</li>
-                    <li>map: Transform elements.</li>
-                    <li>reduce: Combine elements to a single result.</li>
+                    <li>ArrayList: Resizable array implementation of List interface.</li>
+                    <li>HashSet: Stores unique elements, unordered.</li>
+                    <li>HashMap: Key-value pairs, allows fast retrieval.</li>
+                    <li>Queue: FIFO data structure like LinkedList and PriorityQueue.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="lesson" onclick="toggleLesson('lambda-content')">
-            <h2>Lambda Expressions</h2>
-            <p>Simplify code with functional programming concepts.</p>
-            <div id="lambda-content" class="lesson-content">
+        <div class="lesson" onclick="toggleLesson('exceptions-content')">
+            <h2>Exception Handling</h2>
+            <p>Handle runtime errors with try-catch blocks.</p>
+            <div id="exceptions-content" class="lesson-content">
                 <ul>
-                    <li>Syntax: (parameters) -> expression</li>
-                    <li>Used for: Implementing interfaces with single methods (Functional Interfaces).</li>
+                    <li>try-catch: Handle exceptions safely.</li>
+                    <li>finally: Execute code regardless of exceptions.</li>
+                    <li>throw: Manually throw an exception.</li>
+                    <li>throws: Declare exceptions in method signatures.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="lesson" onclick="toggleLesson('designpatterns-content')">
-            <h2>Design Patterns</h2>
-            <p>Reusable solutions to common software design problems.</p>
-            <div id="designpatterns-content" class="lesson-content">
+        <div class="lesson" onclick="toggleLesson('multithreading-content')">
+            <h2>Multithreading</h2>
+            <p>Achieve parallel execution using threads.</p>
+            <div id="multithreading-content" class="lesson-content">
                 <ul>
-                    <li>Singleton: Ensure only one instance of a class exists.</li>
-                    <li>Factory: Create objects without specifying the exact class.</li>
-                    <li>Observer: Define a dependency between objects to notify changes.</li>
+                    <li>Thread class: Create and start threads.</li>
+                    <li>Runnable interface: Implement multi-threading.</li>
+                    <li>synchronized: Control thread access to resources.</li>
+                    <li>wait/notify: Communication between threads.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="lesson" onclick="toggleLesson('networking-content')">
-            <h2>Networking</h2>
-            <p>Communicate between devices using Java.</p>
-            <div id="networking-content" class="lesson-content">
+        <div class="lesson" onclick="toggleLesson('filehandling-content')">
+            <h2>File Handling</h2>
+            <p>Read and write files using Java I/O classes.</p>
+            <div id="filehandling-content" class="lesson-content">
                 <ul>
-                    <li>Socket: Establish a client-server connection.</li>
-                    <li>URL: Access resources from the web.</li>
-                    <li>HttpURLConnection: Communicate using HTTP protocol.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson" onclick="toggleLesson('jdbc-content')">
-            <h2>JDBC</h2>
-            <p>Connect Java applications to databases.</p>
-            <div id="jdbc-content" class="lesson-content">
-                <ul>
-                    <li>DriverManager: Load and register drivers.</li>
-                    <li>Connection: Establish database connections.</li>
-                    <li>Statement: Execute SQL queries.</li>
+                    <li>FileReader/FileWriter: Read and write text files.</li>
+                    <li>BufferedReader: Efficient reading of text data.</li>
+                    <li>FileInputStream/FileOutputStream: Handle binary data.</li>
                 </ul>
             </div>
         </div>
