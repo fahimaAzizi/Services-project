@@ -184,31 +184,81 @@
             }
         </script>
 
-        <div class="lesson" onclick="toggleLesson('collections-content')">
-            <h2>Collections Framework</h2>
-            <p>Lists, Sets, Maps, and Queues explained.</p>
-            <div id="collections-content" class="lesson-content">
-                <ul>
-                    <li>ArrayList: Resizable array implementation of List interface.</li>
-                    <li>HashSet: Stores unique elements, unordered.</li>
-                    <li>HashMap: Key-value pairs, allows fast retrieval.</li>
-                    <li>Queue: FIFO data structure like LinkedList and PriorityQueue.</li>
-                </ul>
-            </div>
-        </div>
+      
+<main>
+    <div class="lesson" onclick="toggleLesson('collections-content')">
+        <h2>Collections Framework</h2>
+        <p>Master Lists, Sets, Maps, and Queues in Java.</p>
+        <div id="collections-content" class="lesson-content">
+            <h3>ArrayList</h3>
+            <p><strong>ArrayList</strong> is a resizable array implementation of the List interface. It allows dynamic arrays that can grow as needed.</p>
+            <pre><code>
+import java.util.ArrayList;
+public class TestArrayList {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        System.out.println(list); // Outputs: [Apple, Banana, Cherry]
+    }
+}
+            </code></pre>
 
-        <div class="lesson" onclick="toggleLesson('exceptions-content')">
-            <h2>Exception Handling</h2>
-            <p>Handle runtime errors with try-catch blocks.</p>
-            <div id="exceptions-content" class="lesson-content">
-                <ul>
-                    <li>try-catch: Handle exceptions safely.</li>
-                    <li>finally: Execute code regardless of exceptions.</li>
-                    <li>throw: Manually throw an exception.</li>
-                    <li>throws: Declare exceptions in method signatures.</li>
-                </ul>
-            </div>
+            <h3>HashSet</h3>
+            <p><strong>HashSet</strong> stores unique elements and does not maintain any specific order. Useful for storing items where duplicates are not allowed.</p>
+            <pre><code>
+import java.util.HashSet;
+public class TestHashSet {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Apple"); // Duplicate element
+        System.out.println(set); // Outputs: [Apple, Banana]
+    }
+}
+            </code></pre>
+
+            <h3>HashMap</h3>
+            <p><strong>HashMap</strong> stores key-value pairs, allowing fast retrieval based on keys. Useful for mapping unique keys to values.</p>
+            <pre><code>
+import java.util.HashMap;
+public class TestHashMap {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("Apple", 1);
+        map.put("Banana", 2);
+        System.out.println(map.get("Apple")); // Outputs: 1
+    }
+}
+            </code></pre>
+
+            <h3>Queue</h3>
+            <p><strong>Queue</strong> follows the FIFO (First-In-First-Out) principle. Elements are added to the end and removed from the front.</p>
+            <pre><code>
+import java.util.LinkedList;
+import java.util.Queue;
+public class TestQueue {
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+        queue.add("Apple");
+        queue.add("Banana");
+        System.out.println(queue.poll()); // Outputs: Apple
+    }
+}
+            </code></pre>
         </div>
+    </div>
+</main>
+
+<script>
+    function toggleLesson(id) {
+        var content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+
 
         <div class="lesson" onclick="toggleLesson('multithreading-content')">
             <h2>Multithreading</h2>
