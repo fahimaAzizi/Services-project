@@ -322,17 +322,179 @@
             </div>
         </div>
 
-        <div class="lesson" onclick="toggleLesson('filehandling-content')">
-            <h2>File Handling</h2>
-            <p>Read and write files using Java I/O classes.</p>
-            <div id="filehandling-content" class="lesson-content">
-                <ul>
-                    <li>FileReader/FileWriter: Read and write text files.</li>
-                    <li>BufferedReader: Efficient reading of text data.</li>
-                    <li>FileInputStream/FileOutputStream: Handle binary data.</li>
-                </ul>
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+        
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #121212; /* Dark theme */
+                color: #fff; /* White text */
+                padding: 20px;
+            }
+        
+            header {
+                background-color: #333;
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 3px solid #00ffcc;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+        
+            header h1 {
+                font-size: 2rem;
+                color: #00ffcc;
+            }
+        
+            main {
+                padding: 20px;
+            }
+        
+            /* Lesson Card */
+            .lesson {
+                background-color: #242424; /* Card background */
+                color: #00ffcc; /* Teal text */
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 20px;
+                cursor: pointer;
+                border: 1px solid #00ffcc;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+        
+            .lesson:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+            }
+        
+            .lesson h2 {
+                font-size: 1.8rem;
+            }
+        
+            .lesson p {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+        
+            /* Lesson Content */
+            .lesson-content {
+                display: none;
+                background-color: #333;
+                padding: 20px;
+                margin-top: 10px;
+                border-left: 3px solid #00ffcc;
+                border-radius: 5px;
+            }
+        
+            .lesson-content h3 {
+                color: #00ffcc;
+                margin-bottom: 10px;
+            }
+        
+            .lesson-content p {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: #ddd;
+            }
+        
+            pre {
+                background-color: #1e1e1e;
+                color: #00ffcc;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                margin-bottom: 20px;
+                font-size: 0.95rem;
+                box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+            }
+        
+            code {
+                font-family: 'Courier New', monospace;
+            }
+        </style>
+        
+        <header>
+            <h1>Java Collections Framework</h1>
+        </header>
+        
+        <main>
+            <div class="lesson" onclick="toggleLesson('collections-content')">
+                <h2>Collections Framework</h2>
+                <p>Master Lists, Sets, Maps, and Queues in Java.</p>
+                <div id="collections-content" class="lesson-content">
+                    <h3>ArrayList</h3>
+                    <p><strong>ArrayList</strong> is a resizable array implementation of the List interface. It allows dynamic arrays that can grow as needed.</p>
+                    <pre><code>
+        import java.util.ArrayList;
+        public class TestArrayList {
+            public static void main(String[] args) {
+                ArrayList<String> list = new ArrayList<>();
+                list.add("Apple");
+                list.add("Banana");
+                list.add("Cherry");
+                System.out.println(list); // Outputs: [Apple, Banana, Cherry]
+            }
+        }
+                    </code></pre>
+        
+                    <h3>HashSet</h3>
+                    <p><strong>HashSet</strong> stores unique elements and does not maintain any specific order. Useful for storing items where duplicates are not allowed.</p>
+                    <pre><code>
+        import java.util.HashSet;
+        public class TestHashSet {
+            public static void main(String[] args) {
+                HashSet<String> set = new HashSet<>();
+                set.add("Apple");
+                set.add("Banana");
+                set.add("Apple"); // Duplicate element
+                System.out.println(set); // Outputs: [Apple, Banana]
+            }
+        }
+                    </code></pre>
+        
+                    <h3>HashMap</h3>
+                    <p><strong>HashMap</strong> stores key-value pairs, allowing fast retrieval based on keys. Useful for mapping unique keys to values.</p>
+                    <pre><code>
+        import java.util.HashMap;
+        public class TestHashMap {
+            public static void main(String[] args) {
+                HashMap<String, Integer> map = new HashMap<>();
+                map.put("Apple", 1);
+                map.put("Banana", 2);
+                System.out.println(map.get("Apple")); // Outputs: 1
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Queue</h3>
+                    <p><strong>Queue</strong> follows the FIFO (First-In-First-Out) principle. Elements are added to the end and removed from the front.</p>
+                    <pre><code>
+        import java.util.LinkedList;
+        import java.util.Queue;
+        public class TestQueue {
+            public static void main(String[] args) {
+                Queue<String> queue = new LinkedList<>();
+                queue.add("Apple");
+                queue.add("Banana");
+                System.out.println(queue.poll()); // Outputs: Apple
+            }
+        }
+                    </code></pre>
+                </div>
             </div>
-        </div>
+        </main>
+        
+        <script>
+            function toggleLesson(id) {
+                var content = document.getElementById(id);
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+        
     </main>
 
     <script>
