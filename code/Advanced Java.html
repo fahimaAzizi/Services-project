@@ -105,28 +105,113 @@
         <section id="oop">
             <div class="lesson" onclick="toggleLesson('oop-content')">
                 <h2>Object-Oriented Programming (OOP)</h2>
-                <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p>
+                <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p> 
                 <div id="oop-content" class="lesson-content">
                     <h3>Encapsulation</h3>
+                    <p>Encapsulation is the concept of wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.</p>
                     <pre><code>
-class Person {
-    private String name;
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-}
+        class Person {
+            private String name; // private variable
+            
+            // public getter method
+            public String getName() { 
+                return name; 
+            }
+            
+            // public setter method
+            public void setName(String name) { 
+                this.name = name; 
+            }
+        }
                     </code></pre>
+        
                     <h3>Inheritance</h3>
+                    <p>Inheritance allows a class (child class) to inherit fields and methods from another class (parent class). It promotes code reusability.</p>
                     <pre><code>
-class Animal {
-    void eat() { System.out.println("This animal eats food"); }
-}
-class Dog extends Animal {
-    void bark() { System.out.println("Dog barks"); }
-}
+        class Animal {
+            void eat() { 
+                System.out.println("This animal eats food"); 
+            }
+        }
+        
+        class Dog extends Animal { // Dog inherits Animal
+            void bark() { 
+                System.out.println("Dog barks"); 
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Polymorphism</h3>
+                    <p>Polymorphism allows objects to be treated as instances of their parent class. The most common use is method overriding, where a child class provides its own version of a method inherited from a parent class.</p>
+                    <pre><code>
+        class Animal {
+            void makeSound() { 
+                System.out.println("Animal makes a sound"); 
+            }
+        }
+        
+        class Dog extends Animal {
+            @Override
+            void makeSound() { 
+                System.out.println("Dog barks"); 
+            }
+        }
+        
+        class Cat extends Animal {
+            @Override
+            void makeSound() { 
+                System.out.println("Cat meows"); 
+            }
+        }
+        
+        public class TestPolymorphism {
+            public static void main(String[] args) {
+                Animal a;
+                a = new Dog();
+                a.makeSound(); // Dog barks
+                
+                a = new Cat();
+                a.makeSound(); // Cat meows
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Abstraction</h3>
+                    <p>Abstraction is the process of hiding the implementation details and showing only functionality. It is achieved using abstract classes and interfaces.</p>
+                    <pre><code>
+        abstract class Shape {
+            abstract void draw(); // abstract method (no body)
+        }
+        
+        class Circle extends Shape {
+            @Override
+            void draw() { 
+                System.out.println("Drawing a circle"); 
+            }
+        }
+        
+        class Rectangle extends Shape {
+            @Override
+            void draw() { 
+                System.out.println("Drawing a rectangle"); 
+            }
+        }
+        
+        public class TestAbstraction {
+            public static void main(String[] args) {
+                Shape s;
+                s = new Circle();
+                s.draw(); // Drawing a circle
+        
+                s = new Rectangle();
+                s.draw(); // Drawing a rectangle
+            }
+        }
                     </code></pre>
                 </div>
             </div>
         </section>
+        
 
         <!-- Collections Framework Section -->
         <section id="collections">
