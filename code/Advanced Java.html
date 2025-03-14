@@ -293,29 +293,78 @@
                 <h2>Multithreading</h2>
                 <p>Achieve parallel execution using threads.</p>
                 <div id="multithreading-content" class="lesson-content">
-                    <h3>Thread Creation</h3>
+                    
+                    <h3>Thread Creation (Extending Thread Class)</h3>
+                    <p>In Java, you can create a thread by extending the <code>Thread</code> class and overriding its <code>run()</code> method.</p>
                     <pre><code>
-class MyThread extends Thread {
-    public void run() { System.out.println("Thread is running"); }
-    public static void main(String[] args) {
-        MyThread thread = new MyThread();
-        thread.start();
-    }
-}
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Thread is running");
+            }
+        
+            public static void main(String[] args) {
+                MyThread thread = new MyThread();
+                thread.start(); // starts the thread and calls run()
+            }
+        }
                     </code></pre>
+        
                     <h3>Runnable Interface</h3>
+                    <p>Another way to create a thread is by implementing the <code>Runnable</code> interface and passing an instance to a <code>Thread</code> object.</p>
                     <pre><code>
-class MyRunnable implements Runnable {
-    public void run() { System.out.println("Runnable is running"); }
-    public static void main(String[] args) {
-        Thread thread = new Thread(new MyRunnable());
-        thread.start();
-    }
-}
+        class MyRunnable implements Runnable {
+            public void run() {
+                System.out.println("Runnable is running");
+            }
+        
+            public static void main(String[] args) {
+                Thread thread = new Thread(new MyRunnable());
+                thread.start();
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Thread Synchronization</h3>
+                    <p>Synchronization is used to control access to shared resources in concurrent programming, preventing thread interference.</p>
+                    <pre><code>
+        class Counter {
+            private int count = 0;
+        
+            public synchronized void increment() {
+                count++;
+            }
+        
+            public int getCount() {
+                return count;
+            }
+        }
+        
+        public class TestSynchronization {
+            public static void main(String[] args) throws InterruptedException {
+                Counter counter = new Counter();
+        
+                Thread t1 = new Thread(() -> {
+                    for (int i = 0; i < 1000; i++) counter.increment();
+                });
+                
+                Thread t2 = new Thread(() -> {
+                    for (int i = 0; i < 1000; i++) counter.increment();
+                });
+        
+                t1.start();
+                t2.start();
+        
+                t1.join();
+                t2.join();
+        
+                System.out.println("Final Count: " + counter.getCount());
+            }
+        }
                     </code></pre>
                 </div>
             </div>
         </section>
+        
     </main>
 
     <script>
