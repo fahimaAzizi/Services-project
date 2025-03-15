@@ -400,6 +400,25 @@ public class CompletableFutureExample {
         </section>
         
     </main>
+    <section id="design-patterns">
+        <div class="lesson" onclick="toggleLesson('design-patterns-content')">
+            <h2>Design Patterns</h2>
+            <p>Common software design patterns.</p>
+            <div id="design-patterns-content" class="lesson-content">
+                <h3>Singleton Pattern</h3>
+                <pre><code>
+class Singleton {
+private static Singleton instance;
+private Singleton() {}
+public static Singleton getInstance() {
+    if (instance == null) instance = new Singleton();
+    return instance;
+}
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
 
     <script>
         function toggleLesson(id) {
