@@ -419,6 +419,22 @@ public static Singleton getInstance() {
             </div>
         </div>
     </section>
+    <section id="java17">
+        <div class="lesson" onclick="toggleLesson('java17-content')">
+            <h2>Java 17 Features</h2>
+            <p>Modern Java improvements.</p>
+            <div id="java17-content" class="lesson-content">
+                <h3>Pattern Matching for Switch</h3>
+                <pre><code>
+switch (obj) {
+case String s -> System.out.println("String: " + s);
+case Integer i -> System.out.println("Integer: " + i);
+default -> System.out.println("Unknown");
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
 
     <script>
         function toggleLesson(id) {
