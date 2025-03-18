@@ -5,143 +5,436 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Java</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: #121212; color: #fff; line-height: 1.6; }
-        header { background-color: #333; padding: 1.5rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
-        header h1 { font-size: 2.5rem; }
-        main { padding: 20px; }
-        .lesson { background-color: #242424; padding: 20px; border-radius: 10px; margin-bottom: 20px; cursor: pointer; border: 1px solid #00ffcc; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .lesson:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5); }
-        .lesson-content { display: none; background-color: #333; padding: 20px; margin-top: 10px; border-left: 3px solid #00ffcc; border-radius: 5px; opacity: 0; transition: opacity 0.5s ease; }
-        .lesson-content.show { display: block; opacity: 1; }
-        pre { background: #000; padding: 15px; border-radius: 5px; overflow-x: auto; color: #00ffcc; }
-        h2, h3 { color: #00ffcc; }
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00ffcc;
+            font-size: 1.2rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .lesson {
+            background-color: #242424;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: 1px solid #00ffcc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .lesson-content {
+            display: none;
+            background-color: #333;
+            padding: 20px;
+            margin-top: 10px;
+            border-left: 3px solid #00ffcc;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .lesson-content.show {
+            display: block;
+            opacity: 1;
+        }
+
+        pre {
+            background: #000;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #00ffcc;
+        }
+
+        h2, h3 {
+            color: #00ffcc;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Advanced Java Topics</h1>
+       
     </header>
 
     <main>
-        <!-- Performance Optimization -->
-        <section id="performance">
-            <div class="lesson" onclick="toggleLesson('performance-content')">
-                <h2>Performance Optimization</h2>
-                <p>JVM tuning, profiling, and benchmarking.</p>
-                <div id="performance-content" class="lesson-content">
-                    <h3>JVM Tuning</h3>
-                    <p>Optimizing Java performance using JVM parameters.</p>
+        <!-- OOP Section -->
+        <section id="oop">
+            <div class="lesson" onclick="toggleLesson('oop-content')">
+                <h2>Object-Oriented Programming (OOP)</h2>
+                <p>Master encapsulation, inheritance, polymorphism, and abstraction.</p> 
+                <div id="oop-content" class="lesson-content">
+                    <h3>Encapsulation</h3>
+                    <p>Encapsulation is the concept of wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.</p>
                     <pre><code>
-java -Xms512m -Xmx2g -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -jar app.jar
+        class Person {
+            private String name; // private variable
+            
+            // public getter method
+            public String getName() { 
+                return name; 
+            }
+            
+            // public setter method
+            public void setName(String name) { 
+                this.name = name; 
+            }
+        }
                     </code></pre>
-
-                    <h3>Profiling & Benchmarking</h3>
-                    <p>Using JVisualVM and JMH for performance analysis.</p>
+        
+                    <h3>Inheritance</h3>
+                    <p>Inheritance allows a class (child class) to inherit fields and methods from another class (parent class). It promotes code reusability.</p>
                     <pre><code>
-@Benchmark
-public void testMethod() {
-    list.forEach(i -> Math.sqrt(i));
+        class Animal {
+            void eat() { 
+                System.out.println("This animal eats food"); 
+            }
+        }
+        
+        class Dog extends Animal { // Dog inherits Animal
+            void bark() { 
+                System.out.println("Dog barks"); 
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Polymorphism</h3>
+                    <p>Polymorphism allows objects to be treated as instances of their parent class. The most common use is method overriding, where a child class provides its own version of a method inherited from a parent class.</p>
+                    <pre><code>
+        class Animal {
+            void makeSound() { 
+                System.out.println("Animal makes a sound"); 
+            }
+        }
+        
+        class Dog extends Animal {
+            @Override
+            void makeSound() { 
+                System.out.println("Dog barks"); 
+            }
+        }
+        
+        class Cat extends Animal {
+            @Override
+            void makeSound() { 
+                System.out.println("Cat meows"); 
+            }
+        }
+        
+        public class TestPolymorphism {
+            public static void main(String[] args) {
+                Animal a;
+                a = new Dog();
+                a.makeSound(); // Dog barks
+                
+                a = new Cat();
+                a.makeSound(); // Cat meows
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Abstraction</h3>
+                    <p>Abstraction is the process of hiding the implementation details and showing only functionality. It is achieved using abstract classes and interfaces.</p>
+                    <pre><code>
+        abstract class Shape {
+            abstract void draw(); // abstract method (no body)
+        }
+        
+        class Circle extends Shape {
+            @Override
+            void draw() { 
+                System.out.println("Drawing a circle"); 
+            }
+        }
+        
+        class Rectangle extends Shape {
+            @Override
+            void draw() { 
+                System.out.println("Drawing a rectangle"); 
+            }
+        }
+        
+        public class TestAbstraction {
+            public static void main(String[] args) {
+                Shape s;
+                s = new Circle();
+                s.draw(); // Drawing a circle
+        
+                s = new Rectangle();
+                s.draw(); // Drawing a rectangle
+            }
+        }
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Collections Framework Section -->
+        <section id="collections">
+            <div class="lesson" onclick="toggleLesson('collections-content')">
+                <h2>Collections Framework</h2>
+                <p>Master Lists, Sets, Maps, and Queues in Java.</p>
+                <div id="collections-content" class="lesson-content">
+                    
+                    <h3>ArrayList</h3>
+                    <p>ArrayList is a resizable array implementation of the List interface. It allows duplicate elements and maintains insertion order.</p>
+                    <pre><code>
+        import java.util.ArrayList;
+        public class TestArrayList {
+            public static void main(String[] args) {
+                ArrayList<String> list = new ArrayList<>();
+                list.add("Apple");
+                list.add("Banana");
+                list.add("Cherry");
+                System.out.println("ArrayList: " + list);
+            }
+        }
+                    </code></pre>
+        
+                    <h3>HashSet</h3>
+                    <p>HashSet is a collection that does not allow duplicate elements. It is part of the Set interface and does not maintain insertion order.</p>
+                    <pre><code>
+        import java.util.HashSet;
+        public class TestHashSet {
+            public static void main(String[] args) {
+                HashSet<String> set = new HashSet<>();
+                set.add("Apple");
+                set.add("Banana");
+                set.add("Apple"); // Duplicate element
+                System.out.println("HashSet: " + set);
+            }
+        }
+                    </code></pre>
+        
+                    <h3>HashMap</h3>
+                    <p>HashMap is a part of the Map interface and stores key-value pairs. It does not maintain any order of keys.</p>
+                    <pre><code>
+        import java.util.HashMap;
+        public class TestHashMap {
+            public static void main(String[] args) {
+                HashMap<String, Integer> map = new HashMap<>();
+                map.put("Apple", 1);
+                map.put("Banana", 2);
+                System.out.println("Apple count: " + map.get("Apple"));
+                System.out.println("HashMap: " + map);
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Queue (LinkedList)</h3>
+                    <p>Queue is an interface that follows the First-In-First-Out (FIFO) principle. LinkedList is a class that implements Queue.</p>
+                    <pre><code>
+        import java.util.LinkedList;
+        import java.util.Queue;
+        
+        public class TestQueue {
+            public static void main(String[] args) {
+                Queue<String> queue = new LinkedList<>();
+                queue.add("Apple");
+                queue.add("Banana");
+                System.out.println("Queue: " + queue);
+                System.out.println("Removed element: " + queue.poll());
+                System.out.println("Queue after poll: " + queue);
+            }
+        }
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Multithreading Section -->
+        <section id="multithreading">
+            <div class="lesson" onclick="toggleLesson('multithreading-content')">
+                <h2>Multithreading</h2>
+                <p>Achieve parallel execution using threads.</p>
+                <div id="multithreading-content" class="lesson-content">
+                    
+                    <h3>Thread Creation (Extending Thread Class)</h3>
+                    <p>In Java, you can create a thread by extending the <code>Thread</code> class and overriding its <code>run()</code> method.</p>
+                    <pre><code>
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Thread is running");
+            }
+        
+            public static void main(String[] args) {
+                MyThread thread = new MyThread();
+                thread.start(); // starts the thread and calls run()
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Runnable Interface</h3>
+                    <p>Another way to create a thread is by implementing the <code>Runnable</code> interface and passing an instance to a <code>Thread</code> object.</p>
+                    <pre><code>
+        class MyRunnable implements Runnable {
+            public void run() {
+                System.out.println("Runnable is running");
+            }
+        
+            public static void main(String[] args) {
+                Thread thread = new Thread(new MyRunnable());
+                thread.start();
+            }
+        }
+                    </code></pre>
+        
+                    <h3>Thread Synchronization</h3>
+                    <p>Synchronization is used to control access to shared resources in concurrent programming, preventing thread interference.</p>
+                    <pre><code>
+        class Counter {
+            private int count = 0;
+        
+            public synchronized void increment() {
+                count++;
+            }
+        
+            public int getCount() {
+                return count;
+            }
+        }
+        
+        public class TestSynchronization {
+            public static void main(String[] args) throws InterruptedException {
+                Counter counter = new Counter();
+        
+                Thread t1 = new Thread(() -> {
+                    for (int i = 0; i < 1000; i++) counter.increment();
+                });
+                
+                Thread t2 = new Thread(() -> {
+                    for (int i = 0; i < 1000; i++) counter.increment();
+                });
+        
+                t1.start();
+                t2.start();
+        
+                t1.join();
+                t2.join();
+        
+                System.out.println("Final Count: " + counter.getCount());
+            }
+        }
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+        <section id="concurrency">
+            <div class="lesson" onclick="toggleLesson('concurrency-content')">
+                <h2>Concurrency and Parallelism</h2>
+                <p>Efficient multi-threading in Java.</p>
+                <div id="concurrency-content" class="lesson-content">
+                    <h3>Thread Pools (Executor Framework)</h3>
+                    <pre><code>
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPoolExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 5; i++) {
+            executor.execute(() -> System.out.println(Thread.currentThread().getName()));
+        }
+        executor.shutdown();
+    }
 }
                     </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Security -->
-        <section id="security">
-            <div class="lesson" onclick="toggleLesson('security-content')">
-                <h2>Security in Java</h2>
-                <p>Encryption, authentication, and secure coding.</p>
-                <div id="security-content" class="lesson-content">
-                    <h3>Encryption & Decryption</h3>
+                    <h3>CompletableFuture</h3>
                     <pre><code>
-Cipher cipher = Cipher.getInstance("AES");
-SecretKey key = new SecretKeySpec(bytes, "AES");
-cipher.init(Cipher.ENCRYPT_MODE, key);
-                    </code></pre>
+import java.util.concurrent.CompletableFuture;
 
-                    <h3>Spring Security (JWT)</h3>
-                    <pre><code>
-String token = Jwts.builder()
-    .setSubject("user")
-    .signWith(Keys.secretKeyFor(SignatureAlgorithm.HS256))
-    .compact();
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Microservices -->
-        <section id="microservices">
-            <div class="lesson" onclick="toggleLesson('microservices-content')">
-                <h2>Microservices Architecture</h2>
-                <p>Spring Boot, service discovery, and resilience.</p>
-                <div id="microservices-content" class="lesson-content">
-                    <h3>Spring Boot REST API</h3>
-                    <pre><code>
-@RestController
-@RequestMapping("/api")
-public class MyController {
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, Microservices!";
+public class CompletableFutureExample {
+    public static void main(String[] args) {
+        CompletableFuture.supplyAsync(() -> "Hello, Async!")
+                .thenAccept(System.out::println);
     }
 }
                     </code></pre>
                 </div>
             </div>
         </section>
-
-        <!-- Internationalization -->
-        <section id="i18n">
-            <div class="lesson" onclick="toggleLesson('i18n-content')">
-                <h2>Internationalization (i18n)</h2>
-                <p>Making Java applications globally compatible.</p>
-                <div id="i18n-content" class="lesson-content">
-                    <h3>Resource Bundle Example</h3>
-                    <pre><code>
-ResourceBundle bundle = ResourceBundle.getBundle("messages", Locale.FRANCE);
-String greeting = bundle.getString("greeting");
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Build Tools -->
-        <section id="build-tools">
-            <div class="lesson" onclick="toggleLesson('build-tools-content')">
-                <h2>Build Tools & Dependency Management</h2>
-                <p>Maven & Gradle for project management.</p>
-                <div id="build-tools-content" class="lesson-content">
-                    <h3>Maven Dependency</h3>
-                    <pre><code>
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-&lt;/dependency&gt;
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reactive Programming -->
-        <section id="reactive">
-            <div class="lesson" onclick="toggleLesson('reactive-content')">
-                <h2>Reactive Programming</h2>
-                <p>Non-blocking Java with Project Reactor.</p>
-                <div id="reactive-content" class="lesson-content">
-                    <h3>Mono & Flux</h3>
-                    <pre><code>
-Flux.just("Apple", "Banana", "Cherry")
-    .map(String::toUpperCase)
-    .subscribe(System.out::println);
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
+        
     </main>
+    <section id="design-patterns">
+        <div class="lesson" onclick="toggleLesson('design-patterns-content')">
+            <h2>Design Patterns</h2>
+            <p>Common software design patterns.</p>
+            <div id="design-patterns-content" class="lesson-content">
+                <h3>Singleton Pattern</h3>
+                <pre><code>
+class Singleton {
+private static Singleton instance;
+private Singleton() {}
+public static Singleton getInstance() {
+    if (instance == null) instance = new Singleton();
+    return instance;
+}
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
+    <section id="java17">
+        <div class="lesson" onclick="toggleLesson('java17-content')">
+            <h2>Java 17 Features</h2>
+            <p>Modern Java improvements.</p>
+            <div id="java17-content" class="lesson-content">
+                <h3>Pattern Matching for Switch</h3>
+                <pre><code>
+switch (obj) {
+case String s -> System.out.println("String: " + s);
+case Integer i -> System.out.println("Integer: " + i);
+default -> System.out.println("Unknown");
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
 
     <script>
         function toggleLesson(id) {
